@@ -19,7 +19,7 @@ class HireCategory(models.Model):
         return self.name
 
 class Scholarship(models.Model):
-    image=models.ImageField(null=True, blank=True, upload_to="images/", default='images/alamin.jpg' )
+    image=models.ImageField(null=True, blank=True, upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
     description=models.TextField(max_length=255, null=True , blank=True)
     website=models.CharField(max_length=255, null=True, blank=True)
