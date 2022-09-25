@@ -21,7 +21,7 @@ class HireCategory(models.Model):
 class Scholarship(models.Model):
     image=models.ImageField(null=True, blank=True, upload_to="images/", default='images/alamin.jpg' )
     title=models.CharField(max_length=100, null=True , blank=True)
-    description=models.CharField(max_length=255, null=True , blank=True)
+    description=models.TextField(max_length=255, null=True , blank=True)
     website=models.CharField(max_length=255, null=True, blank=True)
     deadline=models.CharField(max_length=255,null=True, blank=True)
     date=models.DateTimeField(auto_now_add=True)
@@ -38,7 +38,7 @@ class Scholarship(models.Model):
 class Fellowship(models.Model):
     image=models.ImageField(null=True, blank=True, upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
-    description=models.CharField(max_length=255, null=True , blank=True)
+    description=models.TextField(max_length=255, null=True , blank=True)
     website=models.CharField(max_length=255, null=True, blank=True)
     deadline=models.CharField(max_length=255,null=True, blank=True)
     date=models.DateTimeField(auto_now_add=True)
@@ -54,7 +54,7 @@ class Fellowship(models.Model):
 class Event(models.Model):
     image=models.ImageField(null=True, blank=True, upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
-    description=models.CharField(max_length=255, null=True , blank=True)
+    description=models.TextField(max_length=255, null=True , blank=True)
     website=models.CharField(max_length=255, null=True, blank=True)
     eventdate=models.CharField(max_length=255,null=True, blank=True)
     deadline=models.CharField(max_length=255,null=True, blank=True)
@@ -73,7 +73,7 @@ class Event(models.Model):
 class Track(models.Model):
     image=models.ImageField(null=True, blank=True, upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
-    description=models.CharField(max_length=255, null=True , blank=True)
+    description=models.TextField(max_length=255, null=True , blank=True)
     deadline=models.CharField(max_length=255,null=True, blank=True)
     date=models.DateTimeField(auto_now_add=True)
 
@@ -89,7 +89,7 @@ class Track(models.Model):
 class Community(models.Model):
     image=models.ImageField(null=True, blank=True, upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
-    description=models.CharField(max_length=255, null=True , blank=True)
+    description=models.TextField(max_length=255, null=True , blank=True)
     date=models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -144,7 +144,7 @@ class Hire(models.Model):
     name=models.CharField(max_length=255, null=True , blank=True)
     skills=models.CharField(max_length=255, null=True , blank=True)
     location=models.CharField(max_length=255, null=True , blank=True)
-    description=models.CharField(max_length=255, null=True , blank=True)
+    description=models.TextField(max_length=255, null=True , blank=True)
     category=models.CharField(max_length=255, null=True , blank=True)
     twitter=models.CharField(max_length=255, null=True , blank=True)
     facebook=models.CharField(max_length=255, null=True , blank=True)
