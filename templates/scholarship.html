@@ -87,9 +87,11 @@
         <div class="col-lg-3 col-md-6 col-sm-12 d-flex align-items-stretch" style="margin-top: 10px;">
           <div class="card" style="width:100%;margin: auto;">
             <div class="card-body">
-              <img src="{{scholarship.image.url}}" width="100%">
-              
-              {{scholarship.image}}
+        
+              <img src="{{ scholarship.image_url|default_if_none:'#' }}" width="100%" />
+            
+             
+             
      
              <div class="container">
               <h5><b>{{scholarship.title}}</b></h5>

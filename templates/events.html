@@ -84,8 +84,8 @@
         <div class="col-lg-3 col-md-6 col-sm-12 d-flex align-items-stretch" style="margin-top: 10px;">
           <div class="card" style="width:100%;margin: auto;">
             <div class="card-body">
-
-              <img src="{% static 'assets/img/chevening.png' %}" width="100%">
+              <img src="{{ event.image_url|default_if_none:'#' }}" width="100%" />
+              
              <div class="container">
               <h5><b>{{event.title}}</b></h5>
               <span style="font-size: 10px;">DESCRIPTION</span>
@@ -125,8 +125,6 @@
     
 
  
-
-
 
     </div>
 

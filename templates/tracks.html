@@ -79,7 +79,7 @@
 {% for track in tracks %}
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="margin-top: 10px;">
             <div class="member">
-              <img src="{% static 'assets/img/python.jpeg' %}" alt="">
+              <img src="{{ track.image_url|default_if_none:'#' }}" width="100%" />
               <h4>{{track.title}}</h4>
               <span>Deadline: {{track.deadline}}</span>
               <p>

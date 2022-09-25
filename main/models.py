@@ -19,7 +19,7 @@ class HireCategory(models.Model):
         return self.name
 
 class Scholarship(models.Model):
-    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    image=models.ImageField(null=True, blank=True, upload_to="images/", default='images/alamin.jpg' )
     title=models.CharField(max_length=100, null=True , blank=True)
     description=models.CharField(max_length=255, null=True , blank=True)
     website=models.CharField(max_length=255, null=True, blank=True)
@@ -28,6 +28,11 @@ class Scholarship(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
 
 
 class Fellowship(models.Model):
@@ -40,6 +45,11 @@ class Fellowship(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
 
 class Event(models.Model):
     image=models.ImageField(null=True, blank=True, upload_to="images/")
@@ -54,6 +64,11 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+
 
 class Track(models.Model):
     image=models.ImageField(null=True, blank=True, upload_to="images/")
@@ -65,6 +80,11 @@ class Track(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+
 
 class Community(models.Model):
     image=models.ImageField(null=True, blank=True, upload_to="images/")
@@ -75,7 +95,13 @@ class Community(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+
 class Job(models.Model):
+    image=models.ImageField(null=True, blank=True, upload_to="images/")
     position=models.CharField(max_length=100, null=True , blank=True)
     company=models.CharField(max_length=255, null=True , blank=True)
     location=models.CharField(max_length=100, null=True , blank=True)
@@ -89,6 +115,11 @@ class Job(models.Model):
     def __str__(self):
         return self.company
 
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+
 class Blog(models.Model):
     header_image=models.ImageField(null=True, blank=True, upload_to="images/")
     title=models.CharField(max_length=255)
@@ -100,6 +131,11 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+    @property
+    def image_url(self):
+        if self.header_image and hasattr(self.header_image, 'url'):
+            return self.header_image.url
 
     def get_absolute_url(self):
         return  reverse('home')

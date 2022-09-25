@@ -79,7 +79,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               
-              <img src="{% static 'assets/img/slack.png' %}" alt="">
+              <img src="{{ community.image_url|default_if_none:'#' }}" width="100%" />
               <h4>{{community.title}}</h4>
               
               <p>

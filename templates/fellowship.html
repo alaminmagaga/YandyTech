@@ -86,7 +86,8 @@
           <div class="card" style="width:100%;margin: auto;">
             <div class="card-body">
 
-              <img src="{% static 'assets/img/chevening.png' %}" width="100%">
+           
+              <img src="{{ fellowship.image_url|default_if_none:'#' }}" width="100%" />
              <div class="container">
               <h5><b>{{fellowship.title}}</b></h5>
               <span style="font-size: 10px;">DESCRIPTION</span>
