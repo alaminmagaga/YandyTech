@@ -36,10 +36,10 @@
       
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'home' %}">Home</a></li>
           <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
           <li><a class="nav-link scrollto" href="#featured-services">Resources</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
           <li><a class="getstarted scrollto" href="#about">Support Us</a></li>
         </ul>
@@ -58,17 +58,11 @@
 
       <div class="section-title">
 
-        <h2>Blog</h2>
-        <p style="font-size: 18px;">Tips & best practices for digital skills, securing decent jobs and economic Opportunities</p>
-        <p style="font-size: 16px;"><b>Have a blog post? Submit here &#8594</b></p>
-   <br>
-
+        <h2 style="color: teal;">Blog</h2>
+        <h5>Tips & best practices for digital skills, securing decent jobs and economic Opportunities</h5>
+        <h6><b>Have a blog post? Submit here &#8594</b></h6>
       </div>
 
-
-
-
-<br>
       <div class="row">
 
   {% for blog in blogs %}

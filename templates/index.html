@@ -10,8 +10,6 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-
-
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -35,8 +33,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo"><a href="{% url 'home' %}">YandyTech</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -140,29 +137,39 @@
 
         <div class="row">
           <div class="col-lg-6">
-            <img src="{% static 'assets/img/about.png' %}" class="img-fluid" alt="">
+            <img src="{% static 'assets/img/interview.png' %}" class="img-fluid" alt="">
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content">
-            <h3>In the last 4 years, we have connected thousands of youths to life-changing opportunities around the world.</h3>
+          <div class="col-lg-6 pt-4 pt-lg-0 content"> 
+            <br> 
             <br>
+            <br>
+            <br>
+        
+            <h3>In the past years, we have introduced hundreds of young people to tech, decent jobs and  economic growth opportunities that have changed their lives.
+            </h3>
+            <br> 
             <!-- ======= Counts Section ======= -->
+            <div class="section-title">
+
+              <h2 style="color: rgb(30, 27, 27); text-align: left;">All about us</h2>
+            </div>
             <section id="counts" class="counts">
               <div class="container">
 
                 <div class="row counters">
 
                   <div class="col-lg-4 col-4 text-center">
-                    <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                    <p style="font-size: 20px;"> <b> Community </b></p>
+                    <span style="font-size: 30px;">10k+</span>
+                    <p style="font-size: 20px;"> <b> Community Members </b></p>
                   </div>
 
                   <div class="col-lg-4 col-4 text-center">
-                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                    <p style="font-size: 20px;"> <b>Impact </b></p>
+                    <span style="font-size: 30px;">500k+</span>
+                    <p style="font-size: 20px;"> <b>Lives Impact </b></p>
                   </div>
 
                   <div class="col-lg-4 col-4 text-center">
-                    <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+                    <span style="font-size: 30px;">1.2m+</span>
                     <p style="font-size: 20px;"> <b>Reach</b></p>
                   </div>
 
@@ -172,24 +179,7 @@
             </section><!-- End Counts Section -->
 
 
-        <!-- ======= Counts Section ======= -->
-            <p class="fst-italic">
-              We are youth-focused tech social enterprise that promotes inclusive and sustainable economic growth, employment, and decent work for all.<p>
-                <br>
-
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i>find and hire best talent.</li>
-              <li><i class="bi bi-check-circle"></i>decent jobs and economic growth opportunities.</li>
-              <li><i class="bi bi-check-circle"></i>digital literacy skills for future jobs.</li>
-              <li><i class="bi bi-check-circle"></i>community to connect with young professional from different industries.</li>
-
-            </ul>
-
-          </div>
-        </div>
-
-      </div>
+    
     </section><!-- End About Section -->
 
 
@@ -223,11 +213,35 @@
 
       <div class="col-lg-3 col-6 text-center">
 
-        <p><img src="{% static 'assets/img/techibytes.jpg' %}" class="testimonial-img" alt="" width="80%"></p>
+        <p><a href="https://riseuptogether.org/mohammed-bayero-yayandi/"><img src="{% static 'assets/img/rise.png' %}" class="testimonial-img" alt="" width="80%"></a></p>
       </div>
 
     </div>
+    <br>
+    <div class="row">
 
+      <div class="col-lg-3 col-6 text-center">
+
+        <p><a href="http://www.connecteddevelopment.org/"><img src="{% static 'assets/img/code.jpeg' %}" class="testimonial-img" alt="" width="80%"></a></p>
+      </div>
+
+      <div class="col-lg-3 col-6 text-center">
+
+        <p><a href="#"><img src="{% static 'assets/img/north.jpg' %}" class="testimonial-img" alt="" width="90%"></a></p>
+      </div>
+
+
+      <div class="col-lg-3 col-6 text-center">
+
+        <p><a href="#"><img src="{% static 'assets/img/asisd.jpg' %}" class="testimonial-img" alt="" width="40%"></a></p>
+      </div>
+
+      <div class="col-lg-3 col-6 text-center">
+
+        <p><a href="https://riseuptogether.org/mohammed-bayero-yayandi/"><img src="{% static 'assets/img/bfp.jpg' %}" class="testimonial-img" alt="" width="40%"></a></p>
+      </div>
+
+    </div>
   </div>
 </section><!-- End Partners Section -->
 
@@ -250,12 +264,13 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              Hi guys, joining YandyTech has changed my life. It's boosted my capacity in facing all types of interviews and also boosted my knowledge academically, morally and many more.YandyTech to the world ✌️.
+              Thank you @YandyTech
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-            <h3>Saul Goodman</h3>
-            <h4>Ceo &amp; Founder</h4>
+            <img src="{% static 'assets/img/testimonials/isah.jpg' %}" class="testimonial-img" alt="">
+            <h3>Isah Saidu Bawa</h3>
+            <h4>Teacher &amp; Entrepreneur</h4>
           </div>
         </div><!-- End testimonial item -->
 
@@ -263,12 +278,14 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+              @YandyTech is your best plug for opportunity and access to experienced people that can guide you in winning applications!
+
+              Congratulations @iskid_ and other amazing people that have since leveraged the opportunities to set themselves on trajectory for success! @hackyayandy
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-            <h3>Sara Wilsson</h3>
-            <h4>Designer</h4>
+            <img src="{% static 'assets/img/testimonials/yazid.jpg' %}" class="testimonial-img" alt="">
+            <h3>Yazid S. Mikail</h3>
+            <h4>Data Scientist</h4>
           </div>
         </div><!-- End testimonial item -->
 
@@ -276,12 +293,12 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+              From applying for a volunteering role at Jobberman, I got the opportunity at @YandyTech WhatsApp platform. I just received a contract letter after a rigorous interview plus assessment test. I will be serving as an M & E volunteer by next month Inshallah. Thank you @hackyayandy
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-            <h3>Jena Karlis</h3>
-            <h4>Store Owner</h4>
+            <img src="{% static 'assets/img/testimonials/fatima.jpg' %}" class="testimonial-img" alt="">
+            <h3>Fatima Muftau </h3>
+            <h4>Volunteer</h4>
           </div>
         </div><!-- End testimonial item -->
 
@@ -289,12 +306,12 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+              Hey guys, YandyTech has supported me to grow my career in Measurement and Evaluation by providing me with different opportunities for learning and growing in the Development world. I am very grateful to @YandyTech & @hackyayandy they are doing a good job out there...Gracias😎
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-            <h3>Matt Brandon</h3>
-            <h4>Freelancer</h4>
+            <img src="{% static 'assets/img/testimonials/hassana.jpeg' %}" class="testimonial-img" alt="">
+            <h3>Hassana Mustapha</h3>
+            <h4>Monitoring and Evaluation Intern</h4>
           </div>
         </div><!-- End testimonial item -->
 
@@ -302,14 +319,15 @@
           <div class="testimonial-item">
             <p>
               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+              Today I appreciate everything being in a resourceful community like @YandyTech has done to my life 👇. Being a part of the community  founded by @hackyayandy has really changed my perspective about how I see a lot of things. @hackyayandy helped me in millions of ways in becoming the Sekinah we all know today. ❤❤
               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
             </p>
-            <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-            <h3>John Larson</h3>
-            <h4>Entrepreneur</h4>
+            <img src="{% static 'assets/img/testimonials/sekina.jpeg' %}" class="testimonial-img" alt="">
+            <h3>Sekinah Ibrahim</h3>
+            <h4>Data Scientist &amp; CyberGirl</h4>
           </div>
         </div><!-- End testimonial item -->
+
 
       </div>
       <div class="swiper-pagination"></div>
@@ -467,11 +485,6 @@
 
 
   </footer><!-- End Footer -->
-
-
-
-
-
 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

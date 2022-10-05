@@ -1,9 +1,4 @@
-/**
-* Template Name: eNno - v4.8.1
-* Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 
 /*--------------------------------------------------------------
 # General
@@ -620,7 +615,6 @@ section {
   font-size: 48px;
   display: block;
   color: teal;
-  font-weight: 700;
 }
 
 .counts .counters p {
@@ -628,7 +622,6 @@ section {
   margin: 0 0 20px 0;
   font-family: "Raleway", sans-serif;
   font-size: 14px;
-  font-weight: 600;
 }
 
 /*--------------------------------------------------------------

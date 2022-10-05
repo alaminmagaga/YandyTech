@@ -38,9 +38,9 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
           <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
-          <li><a class="nav-link scrollto" href="#featured-services">Resources</a></li>
+          <li><a class="nav-link scrollto active" href="#featured-services">Resources</a></li>
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
           <li><a class="getstarted scrollto" href="#about">Support Us</a></li>
@@ -59,8 +59,8 @@
       <div class="section-title">
 
         <h2>Jobs Lab <br><span style="color: teal;">for sustainable economic growth</span></h2>
-        <p style="font-size: 18px;">A job lab where companies & organisations are transparent about their Salary, Culture & Inclusion</p>
-        <p style="font-size: 16px;"><b>Hiring? Post a Job &#8594</b></p>
+        <h5>A job lab where companies & organisations are transparent about their Salary, Culture & Inclusion</h5>
+        <h6><b>Hiring? Post a Job &#8594</b></h6>
    <br>
    <button class="w3-btn w3-teal w3-border w3-round-large w3-hover-teal" style="margin-top:5px;"><a href="{% url 'job'  %}">All</a></button>
    {% for job in cate %}
