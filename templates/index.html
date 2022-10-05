@@ -10,10 +10,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!--
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
- -->
+
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -28,12 +25,7 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
-  <!-- =======================================================
-  * Template Name: eNno - v4.8.1
-  * Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  
 </head>
 
 <body>
@@ -53,7 +45,7 @@
           <li><a class="nav-link scrollto" href="#featured-services">Resources</a></li>
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
-          <li><a class="getstarted scrollto" href="#footer">Subscribe</a></li>
+          <li><a class="getstarted scrollto" href="#footer">Support Us</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -67,10 +59,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Community for Decent Jobs and Economic Growth</h1>
-          <h2>Access digital skills, jobs, scholarships, fellowship, workshops, and other life-changing opportunities that match your skills.</h2>
+          <h1><span style="color: teal;">Community for Decent</span> Jobs and Economic Growth </h1>
+          <h4>Access digital skills, jobs, scholarships, fellowship, workshops, and other life-changing opportunities that match your skills.</h4>
           <div class="d-flex">
-            <a href="#about" class="w3-hover-teal btn-get-started scrollto">Subscribe</a>
+            <a href="#about" class="w3-hover-teal btn-get-started scrollto">Join Us</a>
 
           </div>
         </div>
@@ -201,37 +193,43 @@
     </section><!-- End About Section -->
 
 
+<!-- ======= Partners Section ======= -->
 <section id="counts" class="counts">
   <div class="container">
 
     <div class="section-title">
 
-      <h3><b>Featured on</b></h3>
+      <h4 style="color: teal;"><b>Our work has been recognised and supported by these organisations</b></h4>
 
     </div>
 
     <div class="row">
 
-      <div class="col-lg-4 col-4 text-center">
+      <div class="col-lg-3 col-6 text-center">
 
-        <p> <a href="https://www.britishcouncil.org.ng/blog/thanks-you-mohammed-bayero-yayandi"> <img src="{% static 'assets/img/british.png' %}" class="testimonial-img" alt="" width="80%" > </a></p>
+        <p><a href="https://www.britishcouncil.org.ng/blog/thanks-you-mohammed-bayero-yayandi"><img src="{% static 'assets/img/british.png' %}" class="testimonial-img" alt="" width="80%"></a></p>
       </div>
 
-      <div class="col-lg-4 col-4 text-center">
+      <div class="col-lg-3 col-6 text-center">
 
-        <p> <a href="https://www.beccadiaries.com/2020/06/24/meet-yayandi-of-africa-a-tech-community-builder/"><img src="{% static 'assets/img/becca.png' %}" class="testimonial-img" alt="" width="40%"> </a></p>
+        <p><a href="https://www.beccadiaries.com/2020/06/24/meet-yayandi-of-africa-a-tech-community-builder/"><img src="{% static 'assets/img/becca.png' %}" class="testimonial-img" alt="" width="40%"></a></p>
       </div>
 
 
-      <div class="col-lg-4 col-4 text-center">
+      <div class="col-lg-3 col-6 text-center">
 
-        <p> <a href="https://techibytes.com/yayandi-making-difference-in-nigeria-tech-ecosystem/"><img src="{% static 'assets/img/techibytes.jpg' %}" class="testimonial-img" alt="" width="80%"> </a></p>
+        <p><a href="https://techibytes.com/yayandi-making-difference-in-nigeria-tech-ecosystem/"><img src="{% static 'assets/img/techibytes.jpg' %}" class="testimonial-img" alt="" width="80%"></a></p>
+      </div>
+
+      <div class="col-lg-3 col-6 text-center">
+
+        <p><img src="{% static 'assets/img/techibytes.jpg' %}" class="testimonial-img" alt="" width="80%"></p>
       </div>
 
     </div>
 
   </div>
-</section><!-- End Counts Section -->
+</section><!-- End Partners Section -->
 
 
 
@@ -242,7 +240,7 @@
   <div class="container">
 
     <div class="section-title">
-      <h2>What our Community are saying about </h2>
+      <h3 style="color: teal;"><b> What our Community are saying</b> </h3>
     </div>
 
     <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -322,56 +320,7 @@
 <!-- End Testimonials Section -->
 
 
-<!-- ======= Counts Section ======= -->
-<section id="counts" class="counts">
-  <div class="container">
-
-    <div class="section-title">
-
-      <h3><b>Partners</b></h3>
-
-    </div>
-
-    <div class="row">
-
-      <div class="col-lg-3 col-6 text-center">
-
-        <p><img src="{% static 'assets/img/british.png' %}" class="testimonial-img" alt="" width="80%" ></p>
-      </div>
-
-      <div class="col-lg-3 col-6 text-center">
-
-        <p><img src="{% static 'assets/img/becca.png' %}" class="testimonial-img" alt="" width="40%"></p>
-      </div>
-
-
-      <div class="col-lg-3 col-6 text-center">
-
-        <p><img src="{% static 'assets/img/techibytes.jpg' %}" class="testimonial-img" alt="" width="80%"></p>
-      </div>
-
-      <div class="col-lg-3 col-6 text-center">
-
-        <p><img src="{% static 'assets/img/techibytes.jpg' %}" class="testimonial-img" alt="" width="80%"></p>
-      </div>
-
-    </div>
-
-  </div>
-</section><!-- End Counts Section -->
-
-
-
-
-
-
-
-
-
   </main><!-- End #main -->
-
-
-
 
 
   <!-- ======= Footer ======= -->
