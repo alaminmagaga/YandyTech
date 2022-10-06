@@ -56,7 +56,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1><span style="color: teal;">Community for Decent</span> Jobs and Economic Growth </h1>
+          <h1><span style="color: teal;">Community for Decent</span> Jobs and Economic Growth Opportunities</h1>
           <h4>Access digital skills, jobs, scholarships, fellowship, workshops, and other life-changing opportunities that match your skills.</h4>
           <div class="d-flex">
             <a href="#about" class="w3-hover-teal btn-get-started scrollto">Join Us</a>
@@ -350,19 +350,19 @@
 
 
                 <h5> <b> Work with us </b> </h5>
-                 <a href="">
+                 <a href="{% url 'hire' %}">
                   <span>Hire</span>
 
                 </a><br>
-                <a href="">
+                <a href="https://www.patreon.com/yandytechcommunity ">
                   <span>Become a patron</span>
 
                 </a><br>
-                <a href="">
+                <a href="{% url 'support' %}">
                   <span>Sponsor</span>
 
                 </a><br>
-                <a href="">
+                <a href="{% url 'job' %}">
                   <span>Jobs</span>
 
                 </a><br>
@@ -374,28 +374,28 @@
               <div class="info_links">
                 <h5> <b> Resources </b> </h5>
 
-                    <a href="">
+                    <a href="{% url 'job' %}">
                       <span>Job opportunities</span>
 
                     </a><br>
 
-                    <a href="">
+                    <a href="{% url 'fellowship' %}">
                       Fellowship
                     </a>
                     <br>
-                    <a href="scholarship.html">
+                    <a href="{% url 'scholarship' %}">
                     Scholarships
                     </a>
                     <br>
-                    <a href="">
+                    <a href="{% url 'events' %}">
                       Events
                     </a>
                     <br>
-                    <a href="">
+                    <a href="{% url 'track' %}">
                       Learn Digital Skills
                     </a>
                     <br>
-                    <a href="">
+                    <a href="{% url 'community' %}">
                       Community
                     </a>
 
@@ -425,7 +425,7 @@
                   </span><br>
                 </a>
 
-                <a href="" class="">
+                <a href="mailto:info@yandytech.org" class="">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
                   <span>
                     Send us a message
