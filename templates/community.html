@@ -64,25 +64,52 @@
 
         <div class="row">
 
-          {% for community in communitys %}
+         
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
               
-              <img src="{{ community.image_url|default_if_none:'#' }}" width="100%" />
-              <h4>{{community.title}}</h4>
+              <img src="{% static 'assets/img/slack.png' %}" width="100%" />
+              <h4>Slack</h4>
               
               <p>
-                {{community.description}}
-               
+                Join our growing community on slack to connect with mentors & experts in development, tech and access life-changing opportunities.
               </p>
               <div class="social">
-                <button type="submit" class="btn btn-primary" style = "background-color: teal">Join</button>
+                <a href="https://join.slack.com/t/yandytechcommunity/shared_invite/zt-1h9fyfelt-Ea5IuCDavXqkfY3ftx12Yw"> <button type="submit" class="btn btn-primary" style = "background-color: teal"> Join</button></a>
               </div>
             </div>
           </div>
 
-         
-{% endfor %}
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              
+              <img src="{% static 'assets/img/facebook.jpeg' %}" width="100%" />
+              <h4>Facebook</h4>
+              
+              <p>
+                Join our growing community on facebook to connect with experts in development, tech and access life-changing opportunities.
+              </p>
+              <div class="social">
+                <a href="https://www.facebook.com/groups/865878303966716/?ref=share_group_link&exp=8ce3"> <button type="submit" class="btn btn-primary" style = "background-color: teal"> Join</button></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              
+              <img src="{% static 'assets/img/telegram.jpeg' %}" width="100%" />
+              <h4>Telegram</h4>
+              
+              <p>
+                Join our growing community on telegram to connect with experts in development, tech and access life-changing opportunities.
+              </p>
+              <div class="social">
+                <a href="https://t.me/+TePMxCQAfWCH3OIy"><button type="submit" class="btn btn-primary" style = "background-color: teal;"> Join</button></a>
+              </div>
+            </div>
+          </div>
+
 
 
         </div>
