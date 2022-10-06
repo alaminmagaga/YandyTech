@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
             model_name="scholarship",
             name="image",
             field=models.ImageField(
-                blank=True, default="images/alamin.jpg", null=True, upload_to="images/"
+                blank=True, null=True, upload_to="images/"
             ),
         ),
         migrations.AlterField(

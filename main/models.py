@@ -1,3 +1,4 @@
+from email.policy import default
 from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
@@ -19,7 +20,7 @@ class HireCategory(models.Model):
         return self.name
 
 class Scholarship(models.Model):
-    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    image=models.ImageField(null=True, blank=True, default="chevening.png",upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
     description=models.TextField(max_length=255, null=True , blank=True)
     website=models.CharField(max_length=255, null=True, blank=True)
@@ -35,7 +36,7 @@ class Scholarship(models.Model):
             return self.image.url
 
 class Fellowship(models.Model):
-    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
     description=models.TextField(max_length=255, null=True , blank=True)
     website=models.CharField(max_length=255, null=True, blank=True)
@@ -51,7 +52,7 @@ class Fellowship(models.Model):
             return self.image.url
 
 class Event(models.Model):
-    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    image=models.ImageField(null=True, blank=True, default="images/chevening.png", upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
     description=models.TextField(max_length=255, null=True , blank=True)
     website=models.CharField(max_length=255, null=True, blank=True)
@@ -70,11 +71,12 @@ class Event(models.Model):
 
 
 class Track(models.Model):
-    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    image=models.ImageField(null=True, blank=True, default="chevening.png", upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
     description=models.TextField(max_length=255, null=True , blank=True)
     deadline=models.CharField(max_length=255,null=True, blank=True)
     date=models.DateTimeField(auto_now_add=True)
+    link=models.CharField(max_length=100, null=False , blank=True)
 
     def __str__(self):
         return self.title
@@ -86,7 +88,7 @@ class Track(models.Model):
 
 
 class Community(models.Model):
-    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
     description=models.TextField(max_length=255, null=True , blank=True)
     date=models.DateTimeField(auto_now_add=True)
@@ -100,7 +102,7 @@ class Community(models.Model):
             return self.image.url
 
 class Job(models.Model):
-    image=models.ImageField(null=True, blank=True, upload_to="images/")
+    image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
     position=models.CharField(max_length=100, null=True , blank=True)
     company=models.CharField(max_length=255, null=True , blank=True)
     location=models.CharField(max_length=100, null=True , blank=True)
@@ -120,7 +122,7 @@ class Job(models.Model):
             return self.image.url
 
 class Blog(models.Model):
-    header_image=models.ImageField(null=True, blank=True, upload_to="images/")
+    header_image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
     title=models.CharField(max_length=255)
     sub_title=models.CharField(max_length=255)
     author=models.ForeignKey(User,on_delete=models.CASCADE)
