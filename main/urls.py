@@ -7,6 +7,7 @@ urlpatterns = [
     path("blog/",views.blog,name="blog"),
     path("terms/",views.terms,name="terms"),
     path("privacy/",views.privacy,name="privacy"),
+    path("support/",views.support,name="support"),
     path("community",views.community,name="community"),
     path("events/",views.events,name="events"),
     path("fellowship/",views.fellowship,name="fellowship"),

@@ -14,6 +14,9 @@ def terms(request):
 def privacy(request):
     return render(request,'privacy.html')
 
+def support(request):
+    return render(request,'support.html')
+
 def blog(request):
     blogs=Blog.objects.all().order_by('date')
     context={'blogs':blogs}
