@@ -38,10 +38,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
           <li><a class="nav-link scrollto" href="#featured-services">Resources</a></li>
-          <li><a class="nav-link scrollto " href="{% url 'team' %}">Team</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
           <li><a class="getstarted scrollto" href="#about">Subscribe</a></li>
         </ul>
@@ -73,7 +71,7 @@
 <br>
       <div class="row">
 
-  {% for blog in blogs %}
+ 
         <div class="col-lg-12 col-md-12 col-sm-12 d-flex align-items-stretch">
           <div class=" card w3-card" style="width:100%;margin: auto;">
             <div class="card-body">
@@ -103,7 +101,7 @@
 
     </div>
     </div>
-    {% endfor %}
+ 
 
 
   </section><!-- End Team Section -->

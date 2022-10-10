@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render
 from .models import Blog, Category, Community, Fellowship, Hire, HireCategory, Job, Scholarship,Event,Track
 from .forms import PostForm
-from django.views.generic import CreateView
+from django.views.generic import CreateView,DetailView
 # Create your views here.
 
 def home(request):
@@ -22,10 +22,24 @@ def blog(request):
     context={'blogs':blogs}
     return render(request,'blog.html',context)
 
-def blogdetail(request):
-    blogs=Blog.objects.all().order_by('date')
-    context={'blogs':blogs}
+def blogdetail(request,cats):
+    blogs=Blog.objects.filter(category=cats)
+    context={'cats':cats ,'blogs':blogs}
     return render(request,'blog_detail.html',context)
+
+def article_details(request,slug):
+    article=Blog.objects.get(slug=slug)
+    context={'article':article}
+    return render(request,'blog_detail.html',context)
+
+
+def article_details(request,slug):
+    article=Blog.objects.get(slug=slug)
+    context={'article':article}
+    return render(request,'blog_detail.html',context)
+
+
+
 
 class AddPostView(CreateView):
     model=Blog
