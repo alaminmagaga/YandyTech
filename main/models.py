@@ -122,11 +122,11 @@ class Job(models.Model):
             return self.image.url
 
 class Blog(models.Model):
-    header_image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
+    header_image=models.ImageField(default="chevening.png", upload_to="images/")
     title=models.CharField(max_length=255)
     sub_title=models.CharField(max_length=255)
     author=models.ForeignKey(User,on_delete=models.CASCADE)
-    body=RichTextField(max_length=100, null=True , blank=True)
+    body=RichTextField(max_length=100)
     date=models.DateTimeField(auto_now_add=True)
     category=models.CharField(max_length=255, default='questions')
 
@@ -157,6 +157,21 @@ class Hire(models.Model):
     def __str__(self):
         return self.name
     
+
+class Article(models.Model):
+    title=models.CharField(max_length=100)
+    slug=models.SlugField(max_length=100)
+    body=models.TextField()
+    date=models.DateTimeField(auto_now_add=True)
+    thumb=models.ImageField(default='default.png',blank=True)
+
+    
+    
+    def __str__(self):
+        return self.title
+
+    def snippet(self):
+        return self.body[:50]+"..."
 
 
 

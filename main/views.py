@@ -1,6 +1,7 @@
 from multiprocessing import context
 from django.shortcuts import render
-from .models import Blog, Category, Community, Fellowship, Hire, HireCategory, Job, Scholarship,Event,Track
+
+from .models import Blog, Category, Community, Fellowship, Hire, HireCategory, Job, Scholarship,Event,Track,Article
 from .forms import PostForm
 from django.views.generic import CreateView,DetailView
 # Create your views here.
@@ -17,26 +18,31 @@ def privacy(request):
 def support(request):
     return render(request,'support.html')
 
+# def blog(request):
+#     blogs=Blog.objects.all().order_by('date')
+#     context={'blogs':blogs}
+#     return render(request,'blog.html',context)
+
+# def blogdetail(request,cats):
+#     blogs=Blog.objects.filter(category=cats)
+#     context={'cats':cats ,'blogs':blogs}
+#     return render(request,'blog_detail.html',context)
+
+
+
+
+
+
 def blog(request):
-    blogs=Blog.objects.all().order_by('date')
-    context={'blogs':blogs}
-    return render(request,'blog.html',context)
+    articles=Article.objects.all().order_by('date')
+    context={'articles':articles}
+    print(articles)
+    return render(request,'home.html',context)
 
-def blogdetail(request,cats):
-    blogs=Blog.objects.filter(category=cats)
-    context={'cats':cats ,'blogs':blogs}
-    return render(request,'blog_detail.html',context)
-
-def article_details(request,slug):
-    article=Blog.objects.get(slug=slug)
+def blogdetail(request,slug):
+    article=Article.objects.get(slug=slug)
     context={'article':article}
-    return render(request,'blog_detail.html',context)
-
-
-def article_details(request,slug):
-    article=Blog.objects.get(slug=slug)
-    context={'article':article}
-    return render(request,'blog_detail.html',context)
+    return render(request,'article_details.html',context)
 
 
 

@@ -5,7 +5,8 @@ from . import views
 
 urlpatterns = [
     path("",views.home,name="home"),
-    path("blog/",views.blog,name="blog"),
+ 
+    # path("blog/",views.blog,name="blog"),
     path("terms/",views.terms,name="terms"),
     path("privacy/",views.privacy,name="privacy"),
     path("support/",views.support,name="support"),
@@ -16,14 +17,16 @@ urlpatterns = [
     path("job/",views.job,name="job"),
     path("scholarship/",views.scholarship,name="scholarship"),
     path("about/",views.about,name="about"),
-    path("details/<str:cats>/",views.blogdetail,name="detail"),
+    # path("details/<str:cats>/",views.blogdetail,name="detail"),
     path("track/",views.track,name="track"),
     path('category/<str:cats>/',views.CategoryView,name='category'),
     path('category',views.CategoryL,name='category'),
     path('hire_category/<str:cats>/',views.HireCategoryView,name='hirecategory'),
     path('hirecategory',views.HireCategoryL,name='hirecategory'),
-    path('article_detail/<slug:slug>/',views.article_details,name='details'),
     path('add_post/',AddPostView.as_view(),name='add-post'),
+    path('blog/',views.blog,name='blog'),
+    path('details/<slug:slug>',views.blogdetail,name='details'),
+   
 
 
 

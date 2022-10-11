@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog, HireCategory, Hire, HireCategory, Job, Scholarship,Fellowship,Event,Track,Community,Category
+from .models import Blog, HireCategory, Hire, HireCategory, Job, Scholarship,Fellowship,Event,Track,Community,Category,Article
 
 # Register your models here.
 admin.site.register(Scholarship)
@@ -12,3 +12,4 @@ admin.site.register(Category)
 admin.site.register(Blog)
 admin.site.register(Hire)
 admin.site.register(HireCategory)
+admin.site.register(Article)
