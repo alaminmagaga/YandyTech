@@ -3,7 +3,7 @@ from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-from datetime import datetime, date
+from datetime import datetime, date,timezone
 from ckeditor.fields import RichTextField
 
 # Create your models here.
@@ -161,9 +161,11 @@ class Hire(models.Model):
 class Article(models.Model):
     title=models.CharField(max_length=100)
     slug=models.SlugField(max_length=100)
-    body=models.TextField()
+    body=RichTextField()
     date=models.DateTimeField(auto_now_add=True)
     thumb=models.ImageField(default='default.png',blank=True)
+    author=models.ForeignKey(User,null=True, on_delete=models.CASCADE)
+
 
     
     

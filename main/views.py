@@ -37,7 +37,7 @@ def blog(request):
     articles=Article.objects.all().order_by('date')
     context={'articles':articles}
     print(articles)
-    return render(request,'home.html',context)
+    return render(request,'article.html',context)
 
 def blogdetail(request,slug):
     article=Article.objects.get(slug=slug)
