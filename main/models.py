@@ -35,6 +35,12 @@ class Scholarship(models.Model):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
 
+    def snippet(self):
+        return self.description[:50]+"..."
+
+    def snippet1(self):
+        return self.website[:30]+"..."
+
 class Fellowship(models.Model):
     image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
     title=models.CharField(max_length=100, null=True , blank=True)
@@ -50,6 +56,10 @@ class Fellowship(models.Model):
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
+
+    def snippet(self):
+        return self.description[:50]+"..."
+
 
 class Event(models.Model):
     image=models.ImageField(null=True, blank=True, default="images/chevening.png", upload_to="images/")
@@ -68,6 +78,12 @@ class Event(models.Model):
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
+            
+    def snippet(self):
+        return self.description[:50]+"..."
+
+    def snippet1(self):
+        return self.website[:30]+"..."
 
 
 class Track(models.Model):
@@ -85,6 +101,11 @@ class Track(models.Model):
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
+
+    def snippet(self):
+        return self.description[:150]+"..."
+
+   
 
 
 class Community(models.Model):
@@ -112,6 +133,8 @@ class Job(models.Model):
     women=models.CharField(max_length=255, null=True , blank=True)
     deadline=models.CharField(max_length=255,null=True, blank=True)
     date=models.DateTimeField(auto_now_add=True)
+    description=RichTextField(max_length=255, null=True , blank=True)
+    link=models.CharField(max_length=255, null=False, blank=False)
 
     def __str__(self):
         return self.company
@@ -129,6 +152,7 @@ class Blog(models.Model):
     body=RichTextField(max_length=100)
     date=models.DateTimeField(auto_now_add=True)
     category=models.CharField(max_length=255, default='questions')
+
 
     def __str__(self):
         return self.title
@@ -165,6 +189,7 @@ class Article(models.Model):
     date=models.DateTimeField(auto_now_add=True)
     thumb=models.ImageField(default='default.png',blank=True)
     author=models.ForeignKey(User,null=True, on_delete=models.CASCADE)
+
 
 
     

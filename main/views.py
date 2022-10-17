@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 from .models import Blog, Category, Community, Fellowship, Hire, HireCategory, Job, Scholarship,Event,Track,Article
 from .forms import PostForm
-from django.views.generic import CreateView,DetailView
+from django.views.generic import CreateView,DetailView,ListView
 # Create your views here.
 
 def home(request):
@@ -18,15 +18,6 @@ def privacy(request):
 def support(request):
     return render(request,'support.html')
 
-# def blog(request):
-#     blogs=Blog.objects.all().order_by('date')
-#     context={'blogs':blogs}
-#     return render(request,'blog.html',context)
-
-# def blogdetail(request,cats):
-#     blogs=Blog.objects.filter(category=cats)
-#     context={'cats':cats ,'blogs':blogs}
-#     return render(request,'blog_detail.html',context)
 
 
 
@@ -43,6 +34,27 @@ def blogdetail(request,slug):
     article=Article.objects.get(slug=slug)
     context={'article':article}
     return render(request,'article_details.html',context)
+
+
+
+class JobView(ListView):
+    model=Job
+    template_name='job.html'
+    def get_context_data(self, *args, **kwargs):
+        cat_menu=Category.objects.all()
+        context=super(JobView, self).get_context_data(*args,**kwargs)
+        context['cat_menu']= cat_menu
+        return context
+
+class JobDetailView(DetailView):
+    model=Job
+    template_name='job_detail.html'
+    def get_context_data(self, *args, **kwargs):
+        cat_menu=Category.objects.all()
+        context=super(JobDetailView, self).get_context_data(*args,**kwargs)
+        context['cat_menu']= cat_menu
+        return context
+   
 
 
 
@@ -74,11 +86,7 @@ def hire(request):
     context={'hires':hires,'cate':cate}
     return render(request,'hire.html',context)
 
-def job(request):
-    jobs=Job.objects.all().order_by('date')
-    cate=Category.objects.all()
-    context={'jobs':jobs,'cate':cate}
-    return render(request,'job.html',context)
+
 
 def scholarship(request):
     scholarships=Scholarship.objects.all().order_by('date')
@@ -100,9 +108,9 @@ def CategoryView(request,cats):
     return render(request,'category.html',context)
 
 def CategoryL(request):
-    cate=Category.objects.all()
-    context={'cate':cate}
-    return render(request,'job.html',context)
+    catelist=Category.objects.all()
+    context={'catelist':catelist}
+    return render(request,'buy.html',context)
 
 
 def HireCategoryView(request,cats):

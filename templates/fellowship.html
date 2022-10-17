@@ -79,13 +79,13 @@
             <div class="card-body">
 
            
-              <img src="{{ fellowship.image_url|default_if_none:'#' }}" width="100%" />
+              <img src="{{ fellowship.image_url|default_if_none:'#' }}" width="100%" height="150px" />
              <div class="container">
               <h5><b>{{fellowship.title}}</b></h5>
               <span style="font-size: 10px;">DESCRIPTION</span>
               <p>
 
-               {{fellowship.description}}
+               {{fellowship.snippet}}
               </p>
 
               <span style="font-size: 10px;">WEBSITE</span> <br>

@@ -72,17 +72,17 @@
         <div class="col-lg-3 col-md-6 col-sm-12 d-flex align-items-stretch" style="margin-top: 10px;">
           <div class="card" style="width:100%;margin: auto;">
             <div class="card-body">
-              <img src="{{ event.image_url|default_if_none:'#' }}" width="100%" />
+              <img src="{{ event.image_url|default_if_none:'#' }}" width="100%" height="250px" />
               
              <div class="container">
               <h5><b>{{event.title}}</b></h5>
               <span style="font-size: 10px;">DESCRIPTION</span>
               <p>
-                {{event.description}}
+                {{event.snippet}}
               </p>
 
               <span style="font-size: 10px;">WEBSITE</span> <br>
-              <span><a href="{{event.website}}">{{event.website}}</a></span>
+              <span><a href="{{event.website}}">{{event.snippet1}}</a></span>
 
 
               <br><br>

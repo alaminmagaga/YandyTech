@@ -98,7 +98,7 @@
         
         
                 <div class="col-lg-11 col-md-6 col-sm-10  ">
-                  <span><a href="" style="text-decoration: underline;"><b>  {{job.position}}</b></a></span><br>
+                  <span><a href="{% url 'jobdetail' job.pk %}" style="text-decoration: underline;"><b>  {{job.position}}</b></a></span><br>
                 <span>{{job.company}}</span><br>
                 <span><img src="{% static 'assets/img/remote1.png' %}" width="20px">{{job.location}}</span> &nbsp <span><img src="{% static 'assets/img/money.png' %}" width="12px">{{job.amount}}</span> &nbsp <span><img src="{% static 'assets/img/time3.png' %}" width="12px">{{job.deadline}}</span>
               <br><br>
