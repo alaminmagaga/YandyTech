@@ -99,7 +99,7 @@ def about(request):
 def track(request):
     tracks=Track.objects.all().order_by('date')
     context={'tracks':tracks}
-    return render(request,'tracks.html',context)
+    return render(request,'track.html',context)
 
 def CategoryView(request,cats):
     category_post=Job.objects.filter(category=cats)
