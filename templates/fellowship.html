@@ -94,7 +94,8 @@
               <span style="font-size: 10px;">DEADLINE</span>
               <br>
               <span>{{fellowship.deadline}}</span>
-
+              <span><a href="{% url 'edit-fellowship' fellowship.pk %}">Edit</a></span>
+              <span><a href="{% url 'delete-fellowship' fellowship.pk %}">Delete</a></span>
               <br><br>
 
 </div>

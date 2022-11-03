@@ -92,6 +92,8 @@
                 <a href=""><i class="bi bi-instagram"></i></a>
                 <a href=""><i class="bi bi-linkedin"></i></a>
               </div>
+              <span><a href="{% url 'edit-hire' hire.pk %}">Edit</a></span>
+            <span><a href="{% url 'delete-hire' hire.pk %}">Delete</a></span>
             </div>
           </div>
 {% endfor %}

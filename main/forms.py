@@ -13,13 +13,13 @@ class PostForm(forms.ModelForm):
     class Meta:
         model=Article
 
-        fields=('title','slug','author','body')
+
+        fields=('title','slug','author','body','thumb')
 
         widgets={
-            'title':forms.TextInput(attrs={'class':'form-control'}),
-            'slug':forms.TextInput(attrs={'class':'form-control'}),
-            'author':forms.TextInput(attrs={'class':'form-control','value':'','id':'elder'}),
-          
-           
+            'title':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'slug':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'author':forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','style':'width: 60%;'}),
+            #'thumb':forms.Select(choices=choice_list,attrs={'class':'form-control','style':'width: 60%;'}),
+            'body':forms.Textarea(attrs={'class':'form-control' ,'style':'width: 60%;'}),
         }
-

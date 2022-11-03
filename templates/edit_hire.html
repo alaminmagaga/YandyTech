@@ -1,0 +1,27 @@
+
+
+
+<br>
+<h1 class="w3-center" style="font-size: 40px;"> Update Post</h1>
+<br>
+<div class="form-group">
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.media}}
+    {{form.as_p}}
+    <br>
+    <button class="btn btn-secondary w-40">Update</button>
+
+</form>
+</div>
+
+
+
+
+
+<script>
+  var name="{{user.id}}"
+  document.getElementById("elder")
+.value=name    </script>
+
+
