@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render
 
 from .models import Blog, Category, Community, Fellowship, Hire, HireCategory, Job, Scholarship,Event,Track,Article
-from .forms import PostForm
+from .forms import EditForm, EditScholarship, PostForm, ScholarshipForm
 from django.urls import reverse_lazy,reverse
 from django.views.generic import CreateView,DetailView,ListView,UpdateView,DeleteView
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
@@ -75,47 +75,47 @@ class AddJobPost(CreateView):
     
     template_name="add_job.html"
     fields='__all__'
+    success_url=reverse_lazy('job')
 
 class AddScholarshipPost(CreateView):
     model=Scholarship
-    
+    form_class = ScholarshipForm
     template_name="add_scholarship.html"
-    fields='__all__'
+    success_url=reverse_lazy('scholarship')
 
 class AddFellowshipPost(CreateView):
     model=Fellowship
-    
     template_name="add_fellowship.html"
     fields='__all__'
+    success_url=reverse_lazy('fellowship')
 
 class AddEventPost(CreateView):
     model=Event
-    
     template_name="add_event.html"
     fields='__all__'
+    success_url=reverse_lazy('event')
 
 class AddCommunityPost(CreateView):
     model=Community
-    
     template_name="add_community.html"
     fields='__all__'
 
 class AddTrackPost(CreateView):
     model=Track
-    
     template_name="add_track.html"
     fields='__all__'
+    
 
 class AddHirePost(CreateView):
     model=Hire
-    
     template_name="add_hire.html"
     fields='__all__'
 
 class UpdatePostView(UpdateView):
     model=Article
+    form_class = EditForm
     template_name="update_post.html"
-    fields=['title','slug','body']
+    #fields=['title','slug','body']
 
 class DeletePostView(DeleteView):
     model=Article
@@ -137,7 +137,7 @@ class DeleteJobView(DeleteView):
 class EditScholarshipView(UpdateView):
     model=Scholarship
     template_name="edit_scholarship.html"
-    fields='__all__'
+    form_class = EditScholarship
     success_url=reverse_lazy('scholarship')
 
 class DeleteScholarshipView(DeleteView):
