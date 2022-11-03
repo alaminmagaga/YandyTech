@@ -99,6 +99,8 @@
               <span style="font-size: 10px;">LOCATION</span>
               <br>
               <span>{{event.location}}</span>
+              <span><a href="{% url 'edit-event' event.pk %}">Edit</a></span>
+              <span><a href="{% url 'delete-event' event.pk %}">Delete</a></span>
 
               <br><br>
 

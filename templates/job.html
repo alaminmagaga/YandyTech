@@ -121,6 +121,8 @@
                   {{job.women}} women in {{job.category}}
                   {% endif %}
                 </span>
+                <span><a href="{% url 'edit-job' job.pk %}">Edit</a></span>
+            <span><a href="{% url 'delete-job' job.pk %}">Delete</a></span>
         
         
         

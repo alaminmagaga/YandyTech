@@ -40,6 +40,8 @@ class Scholarship(models.Model):
 
     def snippet1(self):
         return self.website[:30]+"..."
+    def get_absolute_url(self):
+        return reverse('home')
 
 class Fellowship(models.Model):
     image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
@@ -59,6 +61,8 @@ class Fellowship(models.Model):
 
     def snippet(self):
         return self.description[:50]+"..."
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 class Event(models.Model):
@@ -84,6 +88,8 @@ class Event(models.Model):
 
     def snippet1(self):
         return self.website[:30]+"..."
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 class Track(models.Model):
@@ -105,6 +111,9 @@ class Track(models.Model):
     def snippet(self):
         return self.description[:150]+"..."
 
+    def get_absolute_url(self):
+        return reverse('home')
+
    
 
 
@@ -121,6 +130,8 @@ class Community(models.Model):
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
+    def get_absolute_url(self):
+        return reverse('home')
 
 class Job(models.Model):
     image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
@@ -143,6 +154,10 @@ class Job(models.Model):
     def image_url(self):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
+
+    def get_absolute_url(self):
+        #return reverse('article-detail',args=(str(self.id)))
+        return reverse('home')
 
 class Blog(models.Model):
     header_image=models.ImageField(default="chevening.png", upload_to="images/")
@@ -180,6 +195,8 @@ class Hire(models.Model):
 
     def __str__(self):
         return self.name
+    def get_absolute_url(self):
+        return reverse('home')
     
 
 class Article(models.Model):
@@ -189,6 +206,9 @@ class Article(models.Model):
     date=models.DateTimeField(auto_now_add=True)
     thumb=models.ImageField(default='default.png',blank=True)
     author=models.ForeignKey(User,null=True, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('home')
 
 
 

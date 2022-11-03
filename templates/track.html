@@ -80,6 +80,8 @@
               <div class="social">
                 <a href="{{track.link}}"><button type="submit" class="btn btn-primary" style = "background-color: teal">APPLY</button></a>
               </div>
+              <span><a href="{% url 'edit-track' track.pk %}">Edit</a></span>
+              <span><a href="{% url 'delete-track' track.pk %}">Delete</a></span>
             </div>
           </div>
   {% endfor %}
