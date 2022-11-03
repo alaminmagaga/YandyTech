@@ -1,5 +1,5 @@
 from django import forms
-from .models import Blog,Category
+from .models import Blog,Category,Article
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -11,15 +11,15 @@ for item in choices:
 
 class PostForm(forms.ModelForm):
     class Meta:
-        model=Blog
+        model=Article
 
-        fields=('title','sub_title','author','category','body','header_image')
+        fields=('title','slug','author','body')
 
         widgets={
             'title':forms.TextInput(attrs={'class':'form-control'}),
-            'title_title':forms.TextInput(attrs={'class':'form-control'}),
-            'author':forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','type':'hidden'}),
-            'category':forms.Select(choices=choice_list,attrs={'class':'form-control'}),
-            'body':forms.Textarea(attrs={'class':'form-control'}),
+            'slug':forms.TextInput(attrs={'class':'form-control'}),
+            'author':forms.TextInput(attrs={'class':'form-control','value':'','id':'elder'}),
+          
            
         }
+
