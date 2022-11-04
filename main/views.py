@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render
 
 from .models import Blog, Category, Community, Fellowship, Hire, HireCategory, Job, Scholarship,Event,Track,Article
-from .forms import EditForm, EditScholarship, PostForm, ScholarshipForm
+from .forms import *
 from django.urls import reverse_lazy,reverse
 from django.views.generic import CreateView,DetailView,ListView,UpdateView,DeleteView
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
@@ -85,15 +85,22 @@ class AddScholarshipPost(CreateView):
 
 class AddFellowshipPost(CreateView):
     model=Fellowship
+    form_class = FellowshipForm
     template_name="add_fellowship.html"
-    fields='__all__'
     success_url=reverse_lazy('fellowship')
 
 class AddEventPost(CreateView):
     model=Event
+    form_class=EventForm
     template_name="add_event.html"
-    fields='__all__'
-    success_url=reverse_lazy('event')
+    success_url=reverse_lazy('events')
+
+class EditEventView(UpdateView):
+    model=Event
+    form_class=EditEvent
+    template_name="edit_event.html"
+    success_url=reverse_lazy('events')
+
 
 class AddCommunityPost(CreateView):
     model=Community
@@ -102,9 +109,9 @@ class AddCommunityPost(CreateView):
 
 class AddTrackPost(CreateView):
     model=Track
+    form_class=TrackForm
     template_name="add_track.html"
-    fields='__all__'
-    
+   
 
 class AddHirePost(CreateView):
     model=Hire
@@ -136,8 +143,8 @@ class DeleteJobView(DeleteView):
 
 class EditScholarshipView(UpdateView):
     model=Scholarship
+    form_class=EditScholarship
     template_name="edit_scholarship.html"
-    form_class = EditScholarship
     success_url=reverse_lazy('scholarship')
 
 class DeleteScholarshipView(DeleteView):
@@ -148,8 +155,9 @@ class DeleteScholarshipView(DeleteView):
 
 class EditFellowshipView(UpdateView):
     model=Fellowship
+    form_class=EditFellowship
     template_name="edit_fellowship.html"
-    fields='__all__'
+    
     success_url=reverse_lazy('fellowship')
 
 class DeleteFellowshipView(DeleteView):
@@ -158,11 +166,7 @@ class DeleteFellowshipView(DeleteView):
     success_url=reverse_lazy('fellowship')
     
 
-class EditEventView(UpdateView):
-    model=Event
-    template_name="edit_event.html"
-    fields='__all__'
-    success_url=reverse_lazy('events')
+
 
 class DeleteEventView(DeleteView):
     model=Event
@@ -171,8 +175,8 @@ class DeleteEventView(DeleteView):
 
 class EditTrackView(UpdateView):
     model=Track
+    form_class=EditTrack
     template_name="edit_track.html"
-    fields='__all__'
     success_url=reverse_lazy('track')
 
 class DeleteTrackView(DeleteView):

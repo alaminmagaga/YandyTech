@@ -42,7 +42,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
           <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
           <li><a class="nav-link scrollto" href="#featured-services">Resources</a></li>
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
@@ -70,7 +70,7 @@
     {{form.media}}
     {{form.as_p}}
     <br>
-    <button class="btn btn-secondary w-40">Post</button>
+    <button class="btn btn-secondary  w3-teal" style="width:100px;">Post</button>
 
 </form>
 </div>
