@@ -399,11 +399,12 @@
 
                 </a><br>
 
-            
+                {% if user.is_authenticated %} 
+                {% else %}
                 <a href="{% url 'login' %}">
                   <span>Admin</span>
                 </a>
-
+{% endif %}
 
             </div>
             <div class="col-lg-3 col-6 ">
