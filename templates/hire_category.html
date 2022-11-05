@@ -46,7 +46,11 @@
           <li><a class="nav-link scrollto" href="#featured-services">Resources</a></li>
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
-          <li><a class="getstarted scrollto" href="#about">Support Us</a></li>
+          {% if user.is_authenticated %} 
+          <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
+          {% else %}
+          <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
+          {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
