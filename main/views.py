@@ -13,6 +13,9 @@ class UserRegisterView(CreateView):
     form_class=UserCreationForm
     template_name='registration/register.html'
     success_url=reverse_lazy('login')
+
+def profile(request):
+    return render(request,'profile.html')
 # End Registration
 
 # home Section
@@ -284,4 +287,5 @@ def CategoryL(request):
     return render(request,'buy.html',context)
 
 # End Category
+
 

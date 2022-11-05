@@ -106,8 +106,8 @@
               <span>{{scholarship.deadline}}</span>
               <br>
               {% if user.is_authenticated %} 
-              <span><a href="{% url 'edit-event' event.pk %}">Edit</a></span>
-              <span><a href="{% url 'delete-event' event.pk %}">Delete</a></span>
+              <span><a href="{% url 'edit-scholarship' scholarship.pk %}">Edit</a></span>
+              <span><a href="{% url 'delete-scholarship' scholarship.pk %}">Delete</a></span>
               {% endif %}
               <br><br>
 
