@@ -30,7 +30,7 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
-  
+  <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=63668879bdc1a200130804b7&product=inline-share-buttons&source=platform" async="async"></script>
 </head>
 
 <body>
@@ -70,7 +70,7 @@
         <br>
         <h2>Jobs Lab <br><span style="color: teal;">for sustainable economic growth</span></h2>
         <h5>A job lab where companies & organisations are transparent about their Salary, Culture & Inclusion</h5>
-        <a href="https://forms.gle/6e56Cs9A5cdxGAWs9"><h6><b>Hiring? Post a Job &#8594</b></h6></a>
+        <a href="https://forms.gle/6e56Cs9A5cdxGAWs9"><h6 style="text-decoration: underline;"><b>Hiring? Post a Job &#8594</b></h6></a>
    <br>
    <button class="w3-btn w3-teal w3-border w3-round-large w3-hover-teal" style="margin-top:5px;"><a href="{% url 'job'  %}">All</a></button>
    {% for job in cat_menu %}
@@ -143,27 +143,18 @@
         <p>
           We'll let you know as soon as a job is posted on our job board
         </p>
-        <br>
+       
         <a href="https://www.getrevue.co/profile/yandytech" style="color: teal;">
           Subscribe</a>
-        <br>
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-show-count="false" target="_blank">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-        <script type="IN/Share" data-url="https://yandytech.org/job/1"></script>
+        <br><br>
 
-<a
-    href="https://www.facebook.com/sharer/sharer.php?u=https://yandytech.org/job/1" 
-    target="_blank"
-    rel="noopener noreferrer"
->
-   <button class="w3-teal">Facebook</button>
-</a>
+        <div class="sharethis-inline-share-buttons"></div>
 
+       
   </div>
 </section>
 
-<!-- TWITTER SCRIPT-->
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
       </div>
 </div>
     </div>
