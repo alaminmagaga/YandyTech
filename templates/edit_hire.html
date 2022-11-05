@@ -47,7 +47,11 @@
           <li><a class="nav-link scrollto active" href="#featured-services">Resources</a></li>
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
+          {% if user.is_authenticated %} 
+          <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
+          {% else %}
           <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
+          {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -63,7 +67,7 @@
 <br>
 <br>
 <br>
-<h1 class="w3-center" style="font-size: 40px;"> Update Hire</h1>
+<h1 class="w3-center" style="font-size: 40px; color: teal;"> Update Hire</h1>
 <div class="form-group" style="margin-left:5%;">
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}

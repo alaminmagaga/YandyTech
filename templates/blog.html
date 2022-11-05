@@ -65,7 +65,8 @@
       <div class="container">
   
         <div class="section-title">
-          <br>
+
+          <div style="padding: 40px;">
           <h2 style="color: teal;">Blog</h2>
           <h5>Tips & best practices for digital skills, securing decent jobs and economic Opportunities</h5>
           <a href="https://forms.gle/8FR8fcKCFsHLLsFt5"><h6><b>Have a blog post? Submit here &#8594</b></h6></a>
@@ -96,16 +97,9 @@
             <span><a href="{% url 'delete-post' article.pk %}">Delete</a></span>
             <a href="{% url 'logout' %}" class="w3-bar-item w3-button  w3-hide-small">Logout</a>
             {% endif %}
-           
-  
-  
-  
-  
-  
-              </div>
+
           </div>
-  
-  
+          </div>
           </div>
         </div>
   
@@ -113,6 +107,7 @@
   
       {% endfor %}
       </div>
+        </div>
     </section><!-- End Team Section -->
 
 
