@@ -1,5 +1,5 @@
 from django import forms
-from .models import Blog,Category,Article, Scholarship,Fellowship,Event,Hire,Track
+from .models import Blog,Category,Article, Scholarship,Fellowship,Event,Hire,Track,Job
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -209,5 +209,47 @@ class EditHire(forms.ModelForm):
             'deadline':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
             'description':forms.Textarea(attrs={'class':'form-control' ,'style':'width: 60%;'}),
             'eventdate':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'location':forms.TextInput(attrs={'class':'form-control' ,'style':'width: 60%;'}),
+        }
+
+
+
+class JobForm(forms.ModelForm):
+    class Meta:
+        model=Job
+        fields=('position','company','amount','number','women','deadline','category','link','description','location','image')
+        
+        widgets={
+            'position':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'company':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'amount':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'number':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'women':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'deadline':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'category':forms.Select(choices=choice_list,attrs={'class':'form-control','style':'width: 60%;'}),
+            'link':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'description':forms.Textarea(attrs={'class':'form-control' ,'style':'width: 60%;'}),
+            'location':forms.TextInput(attrs={'class':'form-control' ,'style':'width: 60%;'}),
+        }
+
+
+
+  
+ 
+class EditJob(forms.ModelForm):
+    class Meta:
+        model=Job
+        fields=('position','company','amount','number','women','deadline','category','link','description','location')
+        
+        widgets={
+            'position':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'company':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'amount':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'number':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'women':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'deadline':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'category':forms.Select(choices=choice_list,attrs={'class':'form-control','style':'width: 60%;'}),
+            'link':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+            'description':forms.Textarea(attrs={'class':'form-control' ,'style':'width: 60%;'}),
             'location':forms.TextInput(attrs={'class':'form-control' ,'style':'width: 60%;'}),
         }
