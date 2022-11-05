@@ -66,7 +66,7 @@
         <br>
         <h2>Jobs Lab <br><span style="color: teal;">for sustainable economic growth</span></h2>
         <h5>A job lab where companies & organisations are transparent about their Salary, Culture & Inclusion</h5>
-        <a href="mailto:info@yandytech.org"><h6><b>Hiring? Post a Job &#8594</b></h6></a>
+        <a href="https://forms.gle/6e56Cs9A5cdxGAWs9"><h6><b>Hiring? Post a Job &#8594</b></h6></a>
    <br>
    <button class="w3-btn w3-teal w3-border w3-round-large w3-hover-teal" style="margin-top:5px;"><a href="{% url 'job'  %}">All</a></button>
    {% for job in cat_menu %}
@@ -74,19 +74,11 @@
   
    <button class="w3-btn w3-white w3-border w3-round-large w3-hover-teal" style="margin-top:5px;"><a href="{% url 'category' job %}">{{job.name}}</a></button>
   
-   
       {% endfor %}
 
-
       </div>
-
-
-
-
 <br>
      
-
- 
 <div class="row">
 
         <div class="col-lg-9 col-md-9 col-sm-12 d-flex align-items-stretch" style="margin-top: 10px;">
@@ -97,10 +89,6 @@
                 <div class="col-lg-1 col-md-2 col-sm-2 d-flex align-items-stretch">
                   <img src="{{ job.image_url|default_if_none:'#' }}" width="100%" height="100px" />
                 </div>
-        
-        
-        
-        
                 <div class="col-lg-11 col-md-6 col-sm-10  ">
                   <span><a href="{% url 'jobdetail' job.pk %}" style="text-decoration: underline;"><b>  {{job.position}}</b></a></span><br>
                 <span>{{job.company}}</span><br>
@@ -121,13 +109,6 @@
                   {{job.women}} women in {{job.category}}
                   {% endif %}
                 </span>
-        
-        
-        
-        
-
-
-
 
             </div>
         </div>
