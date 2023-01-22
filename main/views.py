@@ -5,6 +5,18 @@ from .forms import *
 from django.urls import reverse_lazy,reverse
 from django.views.generic import CreateView,DetailView,ListView,UpdateView,DeleteView
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
+from django.shortcuts import get_object_or_404
+from django.http import FileResponse
+from django.http import HttpResponse
+from django.urls import path
+from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage
+
+import os
+
+
+
+
 
 
 
@@ -40,18 +52,18 @@ def about(request):
 
 
 
-
-
-
-#job section
 class JobView(ListView):
     model=Job
     template_name='job.html'
+    paginate_by = 10 # number of items per page
+    ordering=['-id']
     def get_context_data(self, *args, **kwargs):
         cat_menu=Category.objects.all()
         context=super(JobView, self).get_context_data(*args,**kwargs)
         context['cat_menu']= cat_menu
         return context
+
+
 
 class JobDetailView(DetailView):
     model=Job
@@ -83,10 +95,23 @@ class DeleteJobView(DeleteView):
 
 # Scholarship Section
 
+
+from django.core.paginator import Paginator
+
 def scholarship(request):
     scholarships=Scholarship.objects.all().order_by('date')
+    paginator = Paginator(scholarships, 4)  # Show 10 scholarships per page
+    page = request.GET.get('page')
+    scholarships = paginator.get_page(page)
     context={'scholarships':scholarships}
     return render(request,'scholarship.html',context)
+
+
+
+def scholarshipdetail(request,slug):
+    scholarship=Scholarship.objects.get(slug=slug)
+    context={'scholarship':scholarship}
+    return render(request,'scholarship_details.html',context)
 
 class AddScholarshipPost(CreateView):
     model=Scholarship
@@ -113,8 +138,19 @@ class DeleteScholarshipView(DeleteView):
 # Fellowship Section
 def fellowship(request):
     fellowships=Fellowship.objects.all().order_by('date')
+    paginator = Paginator(fellowships, 4)  # Show 10  per page
+    page = request.GET.get('page')
+    fellowships = paginator.get_page(page)
     context={'fellowships':fellowships}
     return render(request,'fellowship.html',context)
+
+
+
+def fellowshipdetail(request,slug):
+    fellowship=Fellowship.objects.get(slug=slug)
+    context={'fellowship':fellowship}
+    return render(request,'fellowship_details.html',context)
+
 
 class AddFellowshipPost(CreateView):
     model=Fellowship
@@ -134,6 +170,8 @@ class DeleteFellowshipView(DeleteView):
     model=Fellowship
     template_name="delete_fellowship.html"
     success_url=reverse_lazy('fellowship')
+
+
 # End Fellowship
 
 
@@ -142,8 +180,19 @@ class DeleteFellowshipView(DeleteView):
 
 def events(request):
     events=Event.objects.all().order_by('date')
+    paginator = Paginator(events, 2)  # Show 10  per page
+    page = request.GET.get('page')
+    events = paginator.get_page(page)
     context={'events':events}
     return render(request,'events.html',context)
+
+
+
+
+def eventdetail(request,slug):
+    event=Event.objects.get(slug=slug)
+    context={'event':event}
+    return render(request,'event_details.html',context)
     
 class AddEventPost(CreateView):
     model=Event
@@ -181,8 +230,18 @@ class AddCommunityPost(CreateView):
 # Track Section
 def track(request):
     tracks=Track.objects.all().order_by('date')
+    paginator = Paginator(tracks, 4)  # Show 10  per page
+    page = request.GET.get('page')
+    tracks = paginator.get_page(page)
     context={'tracks':tracks}
+    ordering=['-id']
     return render(request,'track.html',context)
+
+
+def trackdetail(request,slug):
+    track=Track.objects.get(slug=slug)
+    context={'track':track}
+    return render(request,'track_details.html',context)
 
 class AddTrackPost(CreateView):
     model=Track
@@ -208,11 +267,11 @@ class DeleteTrackView(DeleteView):
 def blog(request):
     articles=Article.objects.all().order_by('date')
     context={'articles':articles}
-    print(articles)
+    ordering=['-id']
     return render(request,'blog.html',context)
 
 def blogdetail(request,slug):
-    article=Article.objects.get(slug=slug)
+    article=Article.objects.get(new_slug=slug)
     context={'article':article}
     return render(request,'blog_details.html',context)
 
@@ -237,10 +296,13 @@ class DeletePostView(DeleteView):
 
 # Hire Section
 def hire(request):
-    hires=Hire.objects.all().order_by('date')
+    hires=Hire.objects.all().order_by('-id')
     cate=HireCategory.objects.all()
     context={'hires':hires,'cate':cate}
+    
     return render(request,'hire.html',context)
+
+
 
 
 class AddHirePost(CreateView):
@@ -264,11 +326,13 @@ def HireCategoryView(request,cats):
     category_post=Hire.objects.filter(category=cats)
     cate=HireCategory.objects.all()
     context={'cats':cats ,'category_post':category_post,'cate':cate}
+    ordering=['id']
     return render(request,'hire_category.html',context)
 
 def HireCategoryL(request):
     cate=HireCategory.objects.all()
     context={'cate':cate}
+    ordering=['-id']
     return render(request,'hire.html',context)
 
 # End hire

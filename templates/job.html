@@ -6,12 +6,49 @@
 <html lang="en">
 
 <head>
+    
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4DW5LJMJ4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K4DW5LJMJ4');
+</script>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+ 
+  
+  <!-- HTML Meta Tags -->
+  <title>YandyTech Job Lab</title>
+  <meta name="description" content="Access Job Opportunties from top Industries">
 
-  <title>YandyTech</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://yandytech.org/job/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YandyTech Job Lab">
+  <meta property="og:description" content="Access Job Opportunties from top Industries">
+  <meta property="og:image" content="https://yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="yandytech.org">
+  <meta property="twitter:url" content="https://yandytech.org/job/">
+  <meta name="twitter:title" content="YandyTech Job Lab">
+  <meta name="twitter:description" content="Access Job Opportunties from top Industries">
+  <meta name="twitter:image" content="https://yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        
+           
+ 
+    
+    
+  
+
 
   <!-- Favicons -->
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
@@ -72,11 +109,11 @@
         <h5>A job lab where companies & organisations are transparent about their Salary, Culture & Inclusion</h5>
          <a href="https://forms.gle/6e56Cs9A5cdxGAWs9"><h6 style="text-decoration: underline;"><b>Hiring? Post a Job &#8594</b></h6></a>
    <br>
-   <button class="w3-btn w3-teal w3-border w3-round-large w3-hover-teal" style="margin-top:5px;"><a href="{% url 'job'  %}">All</a></button>
+   <a href="{% url 'job'  %}"><button class="w3-btn w3-teal w3-border w3-round-large w3-hover-teal" style="margin-top:5px;">All</button></a>
    {% for job in cat_menu %}
 
   
-   <button class="w3-btn w3-white w3-border w3-round-large w3-hover-teal" style="margin-top:5px;"><a href="{% url 'category' job %}">{{job.name}}</a></button>
+   <a href="{% url 'category' job %}"><button class="w3-btn w3-white w3-border w3-round-large w3-hover-teal" style="margin-top:5px;">{{job.name}}</button></a>
   
    
       {% endfor %}
@@ -98,18 +135,27 @@
             <div class="card-body">
               <div class="row">
 
-                <div class="col-lg-1 col-md-2 col-sm-2 d-flex align-items-stretch">
-                  <img src="{{job.image_url}}" width="100%" height="100px" />
+                <div class="col-lg-2 col-md-4 col-sm-2 d-flex align-items-stretch">
+                  <img src="{{job.image_url}}" width="100%" height="150px" />
                 </div>
         
               
         
         
-                <div class="col-lg-11 col-md-6 col-sm-10  ">
+                <div class="col-lg-10 col-md-8 col-sm-10  ">
                   <span><a href="{% url 'jobdetail' job.pk %}" style="text-decoration: underline;"><b>  {{job.position}}</b></a></span><br>
                 <span>{{job.company}}</span><br>
-                <span><a href="{% url 'category' job.category %}">{{job.category}}</a></span><br>
-                <span><img src="{% static 'assets/img/remote1.png' %}" width="20px">{{job.location}}</span> &nbsp <span><img src="{% static 'assets/img/money.png' %}" width="12px">{{job.amount}}</span> &nbsp <span><img src="{% static 'assets/img/time3.png' %}" width="12px">{{job.deadline}}</span>
+                {% if job.category %}
+                <span><a href="https://yandytech.org/category/Tech/">{{job.category}}</a></span><br>
+               
+                {% else %}
+                <span><a href="https://yandytech.org/category/others/">others</a></span><br>
+                 {% endif %}
+                <span><img src="{% static 'assets/img/remote1.png' %}" width="20px">{{job.location}}</span> &nbsp 
+                 {% if job.money %}
+                <span><img src="{% static 'assets/img/money.png' %}" width="12px">{{job.amount}}</span> &nbsp
+                {% endif %}
+                <span><img src="{% static 'assets/img/time3.png' %}" width="12px">{{job.deadline}}</span>
               <br><br>
               {% if job.number %}
                <span><img src="{% static 'assets/img/male.png' %}" width="15px">
@@ -125,7 +171,7 @@
                   {{job.women}} women in {{job.category}}
                   {% endif %}
                 </span>
-                <br>
+                <br><br>
               {% if user.is_authenticated %} 
               <span><a href="{% url 'edit-job' job.pk %}">Edit</a></span>
               <span><a href="{% url 'delete-job' job.pk %}">Delete</a></span>
@@ -149,6 +195,28 @@
     </div>
 
     {% endfor %}
+<br>
+    <div class="pagination">
+      <span class="page-links">
+        
+       
+        {% if page_obj.has_previous %}
+        
+        <a href="?page={{ page_obj.previous_page_number }}"> <button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> previous</button></a>
+        {% endif %}
+       
+        {% if page_obj.has_next %}
+        
+          <a href="?page={{ page_obj.next_page_number }}"> <button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> next</button></a>
+        {% endif %}
+
+        <span class="page-current">
+         <span style="padding: 10px;"> Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+        </span>
+      </span>
+    </div>
+    
+    
 <br>
 
 

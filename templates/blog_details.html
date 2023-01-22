@@ -6,9 +6,39 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>YandyTech</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  
+  <!-- HTML Meta Tags -->
+  <title>YandyTech Blogs</title>
+  <meta name="description" content="Blogs">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="YandyTech Blogs">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{article.title}}">
+  <meta property="og:description" content="Blogs">
+  <meta property="og:image" content="{{article.thumb.url}}">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="yandytech.org">
+  <meta property="twitter:url" content="YandyTech Blogs">
+  <meta name="twitter:title" content="{{article.title}}">
+  <meta name="twitter:description" content="Blogs">
+  <meta name="twitter:image" content="{{article.thumb.url}}">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Favicons -->
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
@@ -27,6 +57,7 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
+
 
 </head>
 
@@ -59,14 +90,18 @@
   </header><!-- End Header -->
 <br>
 <br>
+<br>
 <div class="article-detail" style="margin:10%;">
     <div class="article">
-<div class="w3-center" ><h1 class="w3-jumbo w3-bold"><b> {{article.title}}</b></h1></div>
+<div class="w3-center"><h1 class="w3-bold" style="font-size:5vw;"><b> {{article.title}}</b></h1></div>
 <br>
-<img src="{{article.thumb.url}}" class="w3-card" style="width:100%;height:600px;"/>
+<img src="{{article.thumb.url}}" class="w3-card responsive" style="width:100%;"/>
 <br><br>
-<span>{{article.date}}</span>
-<h3>{{article.body|safe}}</h3>
+<span style="font-size:1.6vw;float:left;">{{article.author}}</span>
+<span  style="font-size:1.6vw;float:right;">Posted on {{article.date}}</span><br>
+
+<br>
+<span>{{article.body|safe}}</span>
     </div>
 
 </div>

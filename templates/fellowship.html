@@ -3,12 +3,41 @@
 <html lang="en">
 
 <head>
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4DW5LJMJ4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K4DW5LJMJ4');
+</script>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>YandyTech</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+
+  <!-- HTML Meta Tags -->
+  <title>Fellowship Opportunities</title>
+  <meta name="description" content="Fellowship opportunities to help fine-tune your professional development.">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="http://www.yandytech.org/fellowship/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fellowship Opportunities">
+  <meta property="og:description" content="Fellowship opportunities to help fine-tune your professional development.">
+  <meta property="og:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="yandytech.org">
+  <meta property="twitter:url" content="http://www.yandytech.org/fellowship/">
+  <meta name="twitter:title" content="Fellowship Opportunities">
+  <meta name="twitter:description" content="Fellowship opportunities to help fine-tune your professional development.">
+  <meta name="twitter:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        
 
 <!-- Favicons -->
 <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
@@ -76,28 +105,36 @@
 <br>
       <div class="row">
 {% for fellowship in fellowships %}
+
         <div class="col-lg-3 col-md-6 col-sm-12 d-flex align-items-stretch" style="margin-top: 10px;">
-          <div class="card" style="width:100%;margin: auto;">
+          <div class="card" >
             <div class="card-body">
 
            
-              <img src="{{ fellowship.image_url|default_if_none:'#' }}" width="100%" height="150px" />
+              <img src="{{ fellowship.image_url|default_if_none:'#' }}" width="280" height="200" />
              <div class="container">
-              <h5><b>{{fellowship.title}}</b></h5>
+              <div class="container" style="height:50px;overflow:hidden;">
+              <h5><a href="{% url 'fellowship-details' slug=fellowship.slug %}"><b>{{fellowship.title}}</b></a></h5>
+            </div>
+              <br>
+              <div class="container" style="height:100px;overflow:hidden;">
               <span style="font-size: 10px;">DESCRIPTION</span>
               <p>
 
                {{fellowship.snippet}}
               </p>
-
+            </div>
               <span style="font-size: 10px;">WEBSITE</span> <br>
-              <span><a href="">{{fellowship.website}}</a></span>
+              <span><a href="">{{fellowship.snippet1}}</a></span>
 
 
               <br><br>
               <span style="font-size: 10px;">DEADLINE</span>
               <br>
               <span>{{fellowship.deadline}}</span>
+              
+              
+             
               <br>
               {% if user.is_authenticated %} 
               <span><a href="{% url 'edit-fellowship' fellowship.pk %}">Edit</a></span>
@@ -116,11 +153,45 @@
 
     </div>
 
+    <br><br>
+    <div class="pagination">
+      <span class="page-links">
+        {% if fellowships.has_previous %}
+       
+          <a href="?page=1"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> &laquo; first</button></a>
+        
+          <a href="?page={{ fellowships.previous_page_number }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> previous</button></a>
+        {% endif %}
+    
+        
+    
+        {% if fellowships.has_next %}
+        <a href="?page={{ fellowships.next_page_number }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> next</button></a>
+         
+        <a href="?page={{ fellowships.paginator.num_pages }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> last &raquo;</button></a>
+         
+         
+        {% endif %}
+        
+        <span class="page-current">
+          
+          Page {{ fellowships.number }} of {{ fellowships.paginator.num_pages }}
+        </span>
+    
+      </span>
+    </div>
+    
+    
+   
+    
+   
 
 
+  
   </section><!-- End Team Section -->
 
-   </main>
+</main>
+
 
    <!-- ======= Footer ======= -->
    <footer id="footer">

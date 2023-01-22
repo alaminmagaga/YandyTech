@@ -3,12 +3,41 @@
 <html lang="en">
 
 <head>
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4DW5LJMJ4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K4DW5LJMJ4');
+</script>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>YandyTech</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+
+  <!-- HTML Meta Tags -->
+  <title>Get Hired</title>
+  <meta name="description" content="These are folks from our community who are looking for jobs. Reach out to them directly!">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="http://www.yandytech.org/hire/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Get Hired">
+  <meta property="og:description" content="These are folks from our community who are looking for jobs. Reach out to them directly!">
+  <meta property="og:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="yandytech.org">
+  <meta property="twitter:url" content="http://www.yandytech.org/hire/">
+  <meta name="twitter:title" content="Get Hired">
+  <meta name="twitter:description" content="These are folks from our community who are looking for jobs. Reach out to them directly!">
+  <meta name="twitter:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        
 
   <!-- Favicons -->
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
@@ -83,7 +112,12 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member" style = "text-align: left">
 
-              <h4>{{hire.name}}</h4>
+             
+              {% if hire.email %}
+                <a href="mailto: {{hire.email}}"> <h4>{{hire.name}}</h4></a>
+                {% else %}
+               <h4>{{hire.name}}</h4>
+                {% endif %}
               <h5>{{hire.skills}}</h5>
               <h6>{{hire.location}}</h6>
 
@@ -91,15 +125,41 @@
                 {{hire.description}}
               </p>
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+               {% if hire.twitter %}
+                <a href="{{hire.twitter}}"><i class="bi bi-twitter"></i></a>
+                {% else %}
+
+                {% endif %}
+
+                {% if hire.facebook %}
+                <a href="{{hire.facebook}}"><i class="bi bi-facebook"></i></a>
+                {% else %}
+
+                {% endif %}
+
+                {% if hire.instagram %}
+                <a href="{{hire.instagram}}"><i class="bi bi-instagram"></i></a>
+                {% else %}
+
+                {% endif %}
+
+                {% if hire.linkedin %}
+                <a href="{{hire.linkedin}}"><i class="bi bi-linkedin"></i></a>
+                {% else %}
+
+                {% endif %}
+
+
+
+                <br><br>
+                {% if hire.cv %}
+                <button class="w3-btn w3-white w3-border w3-round-large" style="margin-top:5px;"><a href="{{hire.cv_url}}" target="_blank">View</a></button>
+                <button class="w3-btn w3-white w3-border w3-round-large" style="margin-top:5px;"><a href="{{hire.cv_url}}" download>Download CV</a></button>
+                {% endif %}
               </div>
               <br>
               {% if user.is_authenticated %} 
-              <span><a href="{% url 'edit-hire' hire.pk %}">Edit</a></span>
-              <span><a href="{% url 'delete-hire' hire.pk %}">Delete</a></span>
+            
               {% endif %}
             </div>
           </div>
@@ -110,7 +170,9 @@
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section>
+    
+    <!-- End Team Section -->
 
 
 

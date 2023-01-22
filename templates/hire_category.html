@@ -93,7 +93,12 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member" style = "text-align: left">
 
-              <h4>{{hire.name}}</h4>
+
+              {% if hire.email %}
+                <a href="{{hire.email}}"> <h4>{{hire.name}}</h4></a>
+                {% else %}
+               <h4>{{hire.name}}</h4>
+                {% endif %}
               <h5>{{hire.skills}}</h5>
               <h6>{{hire.location}}</h6>
 
@@ -101,10 +106,31 @@
                 {{hire.description}}
               </p>
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+               {% if hire.twitter %}
+                <a href="{{hire.twitter}}"><i class="bi bi-twitter"></i></a>
+                {% else %}
+
+                {% endif %}
+
+                {% if hire.facebook %}
+                <a href="{{hire.facebook}}"><i class="bi bi-facebook"></i></a>
+                {% else %}
+
+                {% endif %}
+
+                {% if hire.instagram %}
+                <a href="{{hire.instagram}}"><i class="bi bi-instagram"></i></a>
+                {% else %}
+
+                {% endif %}
+
+                {% if hire.linkedin %}
+                <a href="{{hire.linkedin}}"><i class="bi bi-linkedin"></i></a>
+                {% else %}
+
+                {% endif %}
+                
+                
               </div>
               <br>
               {% if user.is_authenticated %} 

@@ -6,9 +6,28 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>YandyTech</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  
+  <!-- HTML Meta Tags -->
+  <title>Blog</title>
+  <meta name="description" content="Tips & best practices for digital skills, securing decent jobs and economic Opportunities">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="http://www.yandytech.org/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog">
+  <meta property="og:description" content="Tips & best practices for digital skills, securing decent jobs and economic Opportunities">
+  <meta property="og:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="yandytech.org">
+  <meta property="twitter:url" content="http://www.yandytech.org/blog/">
+  <meta name="twitter:title" content="Blog">
+  <meta name="twitter:description" content="Tips & best practices for digital skills, securing decent jobs and economic Opportunities">
+  <meta name="twitter:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        
 
   <!-- Favicons -->
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
@@ -80,23 +99,26 @@
               <div class="card-body">
                 <div class="row">
   
-                  <div class="col-lg-1 col-md-2 col-sm-2 d-flex align-items-stretch">
+                  <div class="col-lg-3 col-md-3 col-sm-3 d-flex align-items-stretch">
                 
                 <img src="{{article.thumb.url}}" width="100%" />
               </div>
   
-              <div class="col-lg-11 col-md-6 col-sm-10  ">
-              <span style="font-size: 25px"> <a href="{% url 'details' slug=article.slug %}"><b>{{article.title}}</b></a></span>
+              <div class="col-lg-9 col-md-9 col-sm-9  ">
+                  
+              <span style="font-size: 25px"> <a href="{% url 'details' slug=article.new_slug %}"><b>{{article.title}}</b></a></span>
             <br>
-            <span style="font-size: 15px">{{article.snippet|safe}}</span>
-            <br>
-            <span>{{article.date}}</span>
-            <span>{{article.author.username}}</span>
+            <div><br>
+  <span style="font-size:100%; float:Right;">Published by {{article.author}}</span>   
+  
+           
+            
             {% if user.is_authenticated %} 
             <span><a href="{% url 'update-post' article.pk %}">Edit</a></span>
             <span><a href="{% url 'delete-post' article.pk %}">Delete</a></span>
             <a href="{% url 'logout' %}" class="w3-bar-item w3-button  w3-hide-small">Logout</a>
             {% endif %}
+            </div>
 
           </div>
           </div>

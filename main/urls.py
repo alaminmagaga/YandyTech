@@ -3,28 +3,35 @@ from .views import AddBlogPost, JobView,JobDetailView,AddJobPost,AddCommunityPos
 from . import views
 
 
+
+
+
 urlpatterns = [
     path("",views.home,name="home"),
     path('register/',UserRegisterView.as_view(),name='register'),
-    path('profile/',views.profile,name='profile'),
+    path('accounts/profile/',views.profile,name='profile'),
     path("terms/",views.terms,name="terms"),
     path("privacy/",views.privacy,name="privacy"),
     path("support/",views.support,name="support"),
     path("community",views.community,name="community"),
     path("events/",views.events,name="events"),
+    path('events/<slug:slug>',views.eventdetail,name='event-details'),
     path('events/edit/<int:pk>',EditEventView.as_view(),name='edit-event'),
     path('events/<int:pk>/remove',DeleteEventView.as_view(),name='delete-event'),
     path("fellowship/",views.fellowship,name="fellowship"),
+    path('fellowship/<slug:slug>',views.fellowshipdetail,name='fellowship-details'),
     path('fellowship/edit/<int:pk>',EditFellowshipView.as_view(),name='edit-fellowship'),
     path('fellowship/<int:pk>/remove',DeleteFellowshipView.as_view(),name='delete-fellowship'),
     path("hire/",views.hire,name="hire"),
-    path('hire/edit/<int:pk>',EditHireView.as_view(),name='edit-hire'),
+    path('hire/edit/<int:pk>',EditHireView.as_view(), name='edit-hire'),
     path('hire/<int:pk>/remove',DeleteHireView.as_view(),name='delete-hire'),
     path("scholarship/",views.scholarship,name="scholarship"),
+    path('scholarship/<slug:slug>',views.scholarshipdetail,name='scholarship-details'),
     path('scholarship/edit/<int:pk>',EditScholarshipView.as_view(),name='edit-scholarship'),
     path('scholarship/<int:pk>/remove',DeleteScholarshipView.as_view(),name='delete-scholarship'),
     path("about/",views.about,name="about"),
     path("digiLabs/",views.track,name="track"),
+    path('digilabs/<slug:slug>',views.trackdetail,name='track-details'),
     path('digiLabs/edit/<int:pk>',EditTrackView.as_view(),name='edit-track'),
     path('digiLabs/<int:pk>/remove',DeleteTrackView.as_view(),name='delete-track'),
     path('category/<str:cats>/',views.CategoryView,name='category'),
@@ -36,7 +43,7 @@ urlpatterns = [
     path('article/<int:pk>/remove',DeletePostView.as_view(),name='delete-post'),
     
     path('blog/',views.blog,name='blog'),
-    path('details/<slug:slug>',views.blogdetail,name='details'),
+    path('blog/<slug:slug>',views.blogdetail,name='details'),
     path("job/",JobView.as_view(),name="job"),
     path('job/<int:pk>', JobDetailView.as_view() , name='jobdetail'),
     path('job/edit/<int:pk>',EditJobView.as_view(),name='edit-job'),

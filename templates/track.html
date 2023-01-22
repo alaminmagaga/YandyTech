@@ -3,12 +3,41 @@
 <html lang="en">
 
 <head>
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4DW5LJMJ4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K4DW5LJMJ4');
+</script>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>YandyTech</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  
+  <!-- HTML Meta Tags -->
+  <title>DigiLab</title>
+  <meta name="description" content="Get access to our courses & programmes that will prepare you for the future jobs.">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="http://www.yandytech.org/digiLabs/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DigiLab">
+  <meta property="og:description" content="Get access to our courses & programmes that will prepare you for the future jobs.">
+  <meta property="og:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="yandytech.org">
+  <meta property="twitter:url" content="http://www.yandytech.org/digiLabs/">
+  <meta name="twitter:title" content="DigiLab">
+  <meta name="twitter:description" content="Get access to our courses & programmes that will prepare you for the future jobs.">
+  <meta name="twitter:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        
   
   <!-- Favicons -->
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
@@ -75,8 +104,9 @@
 {% for track in tracks %}
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="margin-top: 10px;">
             <div class="member">
-              <img src="{{ track.image_url|default_if_none:'#' }}" width="100%" height="150px"/>
-              <h4>{{track.title}}</h4>
+              <img src="{{ track.image_url|default_if_none:'#' }}" width="320" height="200"/>
+              <a href="{% url 'track-details' slug=track.slug %}"> <h4>{{track.title}}</h4></a>
+             
               <span>Deadline: {{track.deadline}}</span>
               <p>
                 {{track.snippet}}
