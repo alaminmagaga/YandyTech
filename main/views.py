@@ -1,10 +1,13 @@
 from multiprocessing import context
 from django.shortcuts import render
-from .models import Blog, Category, Community, Fellowship, Hire, HireCategory, Job, Scholarship,Event,Track,Article
+from .models import Category, Community, Fellowship, Hire, HireCategory, Job, Scholarship,Event,Track,Article,BlogCategory
 from .forms import *
 from django.urls import reverse_lazy,reverse
 from django.views.generic import CreateView,DetailView,ListView,UpdateView,DeleteView
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm,PasswordChangeForm
+from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
+from django.shortcuts import render, get_object_or_404, redirect
+
 from django.shortcuts import get_object_or_404
 from django.http import FileResponse
 from django.http import HttpResponse
@@ -265,15 +268,99 @@ class DeleteTrackView(DeleteView):
 # Blog Section
 
 def blog(request):
-    articles=Article.objects.all().order_by('date')
-    context={'articles':articles}
+    larticles = Article.objects.all().order_by('date')[1:4]
+    articles = Article.objects.all().order_by('date')[2:4]
+    latest_article = Article.objects.latest('date')
+    view_article = Article.objects.all().order_by('-views')[:5]
+    category = get_object_or_404(BlogCategory, name='Enterprenuership')
+    category_articles = Article.objects.filter(category=category).order_by('date')[:2]
+    latest_articles = Article.objects.filter(category=category).order_by('-date')[:1]
+    category_views = Article.objects.filter(category=category).order_by('-views').first()
+    top_category_view = Article.objects.filter(category=category).order_by('-views')[:8]
+
+    tech_category = get_object_or_404(BlogCategory, name='Tech')
+    tech_articles = Article.objects.filter(category=tech_category).order_by('date')[:8]
+    latest_tech = Article.objects.filter(category=tech_category).order_by('-date')[:1]
+    top_tech_view = Article.objects.filter(category=tech_category).order_by('-views')[:2]
+    second_tech_view = Article.objects.filter(category=tech_category).order_by('-views')[1:2]
+    cate=BlogCategory.objects.all()
+
+    
+   
+
+    context = {'larticles': larticles, 'articles': articles, 'latest_article': latest_article, 'view_article': view_article,'cate':cate,'category_articles': category_articles,'latest_articles':latest_articles,'category_views':category_views,'top_category_view':top_category_view, 'tech_articles':tech_articles, 'latest_tech':latest_tech, 'top_tech_view':top_tech_view, 'second_tech_view':second_tech_view}
+    return render(request, 'blog.html', context)
+
+
+    
+def blogdetail(request,slug):
+    article=Article.objects.get(slug=slug)
+
+    # Handle comment form submission
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            parent_id = form.cleaned_data.get('parent')
+            if parent_id:
+                parent = Comment.objects.get(id=parent_id)
+                comment = form.save(commit=False)
+                comment.article = article
+                comment.parent = parent
+                comment.save()
+            else:
+                comment = form.save(commit=False)
+                comment.article = article
+                comment.save()
+            return redirect('details', slug=slug)
+    else:
+        form = CommentForm()
+
+    # Increase the view count
+    if request.method == 'GET':
+        article.views += 1
+        article.save()
+
+    # Retrieve comments for the article
+    comments = Comment.objects.filter(article=article)
+
+    context={'article':article, 'form': form, 'comments': comments}
+    return render(request,'blog_details.html',context)
+
+def reply(request, slug, comment_id):
+    article = get_object_or_404(Article, slug=slug)
+    parent_comment = get_object_or_404(Comment, id=comment_id)
+    
+    # Handle reply comment form submission
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            reply = form.save(commit=False)
+            reply.article = article
+            reply.parent = parent_comment  # set the parent comment instance
+            reply.save()
+            return redirect('details', slug=slug)
+    else:
+        form = CommentForm()
+
+    context = {'form': form, 'parent_comment': parent_comment}
+    return render(request, 'reply.html', context)
+
+
+
+
+
+def BlogCategoryView(request,cats):
+    category_post=Article.objects.filter(category=cats)
+    cate=BlogCategory.objects.all()
+    context={'cats':cats ,'category_post':category_post,'cate':cate}
+    ordering=['id']
+    return render(request,'blog_category.html',context)
+
+def BlogCategoryL(request):
+    cate=BlogCategory.objects.all()
+    context={'cate':cate}
     ordering=['-id']
     return render(request,'blog.html',context)
-
-def blogdetail(request,slug):
-    article=Article.objects.get(new_slug=slug)
-    context={'article':article}
-    return render(request,'blog_details.html',context)
 
 class AddBlogPost(CreateView):
     model=Article
@@ -301,9 +388,6 @@ def hire(request):
     context={'hires':hires,'cate':cate}
     
     return render(request,'hire.html',context)
-
-
-
 
 class AddHirePost(CreateView):
     model=Hire

@@ -1,7 +1,8 @@
 from django import forms
-from .models import Blog,Category,Article, Scholarship,Fellowship,Event,Hire,Track,Job
+from .models import Category,Article, Scholarship,Fellowship,Event,Hire,Track,Job,Comment
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
 
 choices=Category.objects.all().values_list('name','name')
 choice_list=[]
@@ -14,11 +15,11 @@ class PostForm(forms.ModelForm):
         model=Article
 
 
-        fields=('title','slug','author','body','thumb')
+        fields=('title','author','body','thumb')
 
         widgets={
             'title':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
-            'slug':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+   
             'author':forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','type':'hidden','style':'width: 60%;'}),
             #'thumb':forms.Select(choices=choice_list,attrs={'class':'form-control','style':'width: 60%;'}),
             'body':forms.Textarea(attrs={'class':'form-control' ,'style':'width: 60%;'}),
@@ -28,11 +29,11 @@ class EditForm(forms.ModelForm):
         model=Article
 
 
-        fields=('title','slug','author','body','thumb')
+        fields=('title','author','body','thumb')
 
         widgets={
             'title':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
-            'slug':forms.TextInput(attrs={'class':'form-control','style':'width: 60%;'}),
+         
             'author':forms.TextInput(attrs={'class':'form-control','value':'','id':'elder','style':'width: 50%;'}),
             #'thumb':forms.Select(choices=choice_list,attrs={'class':'form-control','style':'width: 60%;'}),
             'body':forms.Textarea(attrs={'class':'form-control' ,'style':'width: 60%;'}),
@@ -253,3 +254,22 @@ class EditJob(forms.ModelForm):
             'description':forms.Textarea(attrs={'class':'form-control' ,'style':'width: 60%;'}),
             'location':forms.TextInput(attrs={'class':'form-control' ,'style':'width: 60%;'}),
         }
+
+
+
+
+# class CommentForm(forms.ModelForm):
+#     class Meta:
+#         model = Comment
+#         fields = ['name', 'email', 'body']
+#         labels = {'name': 'Name', 'email': 'Email', 'body': 'Comment'}
+#         widgets = {'body': forms.Textarea(attrs={'rows': 5})}
+
+
+
+class CommentForm(forms.ModelForm):
+    parent = forms.IntegerField(widget=forms.HiddenInput, required=False)
+
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'body', 'parent')

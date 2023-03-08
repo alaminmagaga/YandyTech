@@ -6,39 +6,52 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+
   
-  <!-- HTML Meta Tags -->
-  <title>YandyTech Blogs</title>
-  <meta name="description" content="Blogs">
+
+  <title>Blog</title>
+  <meta name="description" content="Tips & best practices for digital skills, securing decent jobs and economic Opportunities">
 
   <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="YandyTech Blogs">
+  <meta property="og:url" content="http://www.yandytech.org/blog/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{article.title}}">
-  <meta property="og:description" content="Blogs">
-  <meta property="og:image" content="{{article.thumb.url}}">
+  <meta property="og:title" content="Blog">
+  <meta property="og:description" content="Tips & best practices for digital skills, securing decent jobs and economic Opportunities">
+  <meta property="og:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="yandytech.org">
-  <meta property="twitter:url" content="YandyTech Blogs">
-  <meta name="twitter:title" content="{{article.title}}">
-  <meta name="twitter:description" content="Blogs">
-  <meta name="twitter:image" content="{{article.thumb.url}}">
+  <meta property="twitter:url" content="http://www.yandytech.org/blog/">
+  <meta name="twitter:title" content="Blog">
+  <meta name="twitter:description" content="Tips & best practices for digital skills, securing decent jobs and economic Opportunities">
+  <meta name="twitter:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
 
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+
+  <!-- Favicons -->
+  <link href="{% static 'blog/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'blog/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
+
+
         
-
-
-
-
-
-
-
-
-
-
-
 
   <!-- Favicons -->
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
@@ -57,26 +70,28 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
-
-
+  
 </head>
 
 <body>
+
+
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
       <a href="{% url 'home' %}"><img src="{% static 'assets/img/yt1.png' %}" height="70px" alt=""></a>
-      
+    
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
           <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
-          <li><a class="nav-link scrollto" href="#featured-services">Resources</a></li>
-          <li><a class="nav-link scrollto active" href="{% url 'blog' %}">Blog</a></li>
-          <li><a class="nav-link scrollto " href="{% url 'hire' %}">Hire</a></li>
+          <li><a class="nav-link scrollto active" href="#featured-services">Resources</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
           {% if user.is_authenticated %} 
           <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
           {% else %}
@@ -88,25 +103,240 @@
 
     </div>
   </header><!-- End Header -->
-<br>
-<br>
-<br>
-<div class="article-detail" style="margin:10%;">
-    <div class="article">
-<div class="w3-center"><h1 class="w3-bold" style="font-size:5vw;"><b> {{article.title}}</b></h1></div>
-<br>
-<img src="{{article.thumb.url}}" class="w3-card responsive" style="width:100%;"/>
-<br><br>
-<span style="font-size:1.6vw;float:left;">{{article.author}}</span>
-<span  style="font-size:1.6vw;float:right;">Posted on {{article.date}}</span><br>
+      </div>
 
-<br>
-<span>{{article.body|safe}}</span>
     </div>
 
-</div>
- <!-- ======= Footer ======= -->
- <footer id="footer">
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <section class="single-post-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 post-content" data-aos="fade-up">
+
+            <!-- ======= Single Post Content ======= -->
+            <div class="single-post">
+              <div class="post-meta"><span class="date">{{article.category}}</span> <span class="mx-1">&bullet;</span> <span>{{article.date}}</span></div>
+              <h1 class="mb-5">{{article.title}}</h1>
+              <img src="{{article.thumb.url}}" alt="" class="img-fluid">
+              <p>{{article.body|safe}}</p>
+
+          
+            </div><!-- End Single Post Content -->
+
+           
+
+
+
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-8">
+                    
+                      <h3>Comments</h3>
+                      {% if comments %}
+                          <ul>
+                          {% for comment in comments %}
+                              <li>{{ comment.name }} said:</li>
+                              <ul>
+                                  <li>{{ comment.body }}</li>
+                                  <li>Posted on {{ comment.created_on }}</li>
+                                  {% if comment.replies.all %}
+                                      {% for reply in comment.replies.all|slice:":2" %}
+                                          <ul>
+                                              <li>{{ reply.name }} replied:</li>
+                                              <ul>
+                                                  <li>{{ reply.body }}</li>
+                                                  <li>Posted on {{ reply.created_on }}</li>
+                                              </ul>
+                                          </ul>
+                                      {% endfor %}
+                                      {% if comment.replies.count > 2 %}
+                                          <a href="#" class="show-more" data-comment-id="{{ comment.id }}">See more replies</a>
+                                      {% endif %}
+                                      <ul class="more-replies" data-comment-id="{{ comment.id }}" style="display:none">
+                                          {% for reply in comment.replies.all|slice:"2:" %}
+                                              <ul>
+                                                  <li>{{ reply.name }} replied:</li>
+                                                  <ul>
+                                                      <li>{{ reply.body }}</li>
+                                                      <li>Posted on {{ reply.created_on }}</li>
+                                                  </ul>
+                                              </ul>
+                                          {% endfor %}
+                                      </ul>
+                                  {% endif %}
+                                  <li><a href="{% url 'reply' article.slug comment.id %}">Reply</a></li>
+                                  <li>{{ comment.replies.count }} replies</li>
+                              </ul>
+                              <hr>
+                          {% endfor %}
+                          </ul>
+                      {% else %}
+                          <p>No comments yet!</p>
+                      {% endif %}
+            
+                  
+                  </div>
+              </div>
+            </div>         
+         
+      
+            <!-- ======= Comments Form ======= -->
+            <form method="post" action="{% url 'details' article.slug %}">
+              {% csrf_token %}
+            <div class="row justify-content-center mt-5">
+
+              <div class="col-lg-12">
+                <h5 class="comment-title">Leave a Comment</h5>
+                <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <label for="comment-name">Name</label>
+                    <input type="text" class="form-control" name="name" id="id_name" placeholder="Enter your name" required> 
+                  </div>
+                  <div class="col-lg-6 mb-3">
+                    <label for="comment-email">Email</label>
+                    <input type="text" class="form-control" name="email" id="id_email" placeholder="Enter your email">
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="comment-message">Message</label>
+
+                    <textarea class="form-control" name="body" id="id_body" placeholder="Enter your name" cols="30" rows="10"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <input type="submit" class="btn btn-primary" value="Post comment">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- End Comments Form -->
+
+
+
+
+
+
+
+
+          </div>
+          <div class="col-md-3" >
+            <!-- ======= Sidebar ======= -->
+            <div class="aside-block">
+
+              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Popular</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-trending-tab" data-bs-toggle="pill" data-bs-target="#pills-trending" type="button" role="tab" aria-controls="pills-trending" aria-selected="false">Trending</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-latest-tab" data-bs-toggle="pill" data-bs-target="#pills-latest" type="button" role="tab" aria-controls="pills-latest" aria-selected="false">Latest</button>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="pills-tabContent">
+
+                    <!-- Popular -->
+                    <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
+                      <div class="post-entry-1 border-bottom">
+                        <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                        <h2 class="mb-2"><a href="#">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                        <span class="author mb-3 d-block">Jenny Wilson</span>
+                      </div>
+    
+                    </div> <!-- End Popular -->
+    
+                    <!-- Trending -->
+                    <div class="tab-pane fade" id="pills-trending" role="tabpanel" aria-labelledby="pills-trending-tab">
+                      <div class="post-entry-1 border-bottom">
+                        <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                        <h2 class="mb-2"><a href="#">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
+                        <span class="author mb-3 d-block">Jenny Wilson</span>
+                      </div>
+    
+                    </div> <!-- End Trending -->
+    
+                    <!-- Latest -->
+                    <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
+                      <div class="post-entry-1 border-bottom">
+                        <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                        <h2 class="mb-2"><a href="#">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
+                        <span class="author mb-3 d-block">Jenny Wilson</span>
+                      </div>
+    
+                 
+    
+                    </div> <!-- End Latest -->
+    
+                  </div>
+                </div>
+    
+              
+    
+                <div class="aside-block">
+                  <h3 class="aside-title">Categories</h3>
+                  <ul class="aside-links list-unstyled">
+                    {% for blog in cate %}
+                    
+                    <li><a href="{% url 'blogcategory' blog %}"><i class="bi bi-chevron-right"></i>{{blog.name}}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div><!-- End Categories -->
+    
+                <div class="aside-block">
+                  <h3 class="aside-title">Tags</h3>
+                  <ul class="aside-tags list-unstyled">
+                    <li><a href="category.html">Business</a></li>
+                    <li><a href="category.html">Culture</a></li>
+                    <li><a href="category.html">Sport</a></li>
+                    <li><a href="category.html">Food</a></li>
+                    <li><a href="category.html">Politics</a></li>
+                    <li><a href="category.html">Celebrity</a></li>
+                    <li><a href="category.html">Startups</a></li>
+                    <li><a href="category.html">Travel</a></li>
+                  </ul>
+                </div><!-- End Tags -->
+
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+
+
+
+
+
+
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+      $(document).ready(function() {
+    $(".show-more").click(function(event) {
+        event.preventDefault();
+        var commentId = $(this).data("comment-id");
+        $(this).hide();
+        $(".more-replies[data-comment-id='" + commentId + "']").show();
+    });
+});
+</script>
+   
+     
+
+
+
+
+
+
+    
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
 
     <div class="footer-top">
 
@@ -123,20 +353,32 @@
     </div>
   </footer><!-- End Footer -->
 
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
 
 
- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-<!-- Vendor JS Files -->
- <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
- <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
- <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
- <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
- <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
- <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+ 
+  <!-- Vendor JS Files -->
+  <script src="{% static 'blog/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'blog/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'blog/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'blog/assets/vendor/php-email-form/validate.js' %}"></script>
 
- <!-- Template Main JS File -->
- <script src="{% static 'assets/js/main.js' %}"></script>
+  <!-- Template Main JS File -->
+  <script src="{% static 'blog/assets/js/main.js' %}"></script>
 
 
 </body>

@@ -6,8 +6,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+
   
-  <!-- HTML Meta Tags -->
+
   <title>Blog</title>
   <meta name="description" content="Tips & best practices for digital skills, securing decent jobs and economic Opportunities">
 
@@ -27,6 +28,29 @@
   <meta name="twitter:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
 
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+
+
+  <!-- Favicons -->
+  <link href="{% static 'blog/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'blog/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
+
+
         
 
   <!-- Favicons -->
@@ -51,6 +75,9 @@
 
 <body>
 
+
+
+  
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
@@ -60,15 +87,15 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
           <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
-          <li><a class="nav-link scrollto" href="#featured-services">Resources</a></li>
-          <li><a class="nav-link scrollto active" href="{% url 'blog' %}">Blog</a></li>
+          <li><a class="nav-link scrollto active" href="#featured-services">Resources</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
           {% if user.is_authenticated %} 
           <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
           {% else %}
-          <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'support' %}" style="background-color:teal;" >Support Us</a></li>
           {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -77,64 +104,331 @@
     </div>
   </header><!-- End Header -->
 
+  
   <main id="main">
+    
+  
 
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
-      <div class="container">
+    <!-- ======= Post Grid Section ======= -->
+    <section id="posts" class="posts">
+      <div class="container" data-aos="fade-up">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <h2></h2>
   
-        <div class="section-title">
+            <div class="post-entry-1 lg">
+              
+              <a href="single-post.html"></a>
+        
 
-          <div style="padding: 40px;">
-          <h2 style="color: teal;">Blog</h2>
-          <h5>Tips & best practices for digital skills, securing decent jobs and economic Opportunities</h5>
-          <a href="https://forms.gle/8FR8fcKCFsHLLsFt5"><h6 style="text-decoration: underline;"><b>Have a blog post? Submit here &#8594</b></h6></a>
-        </div>
-  
-        <div class="row">
-  
-            {% for article in articles %}
-          <div class="col-lg-12 col-md-12 col-sm-12 d-flex align-items-stretch" style="margin-top: 10px;">
-            <div class=" card w3-card" style="width:100%;margin: auto;">
-              <div class="card-body">
-                <div class="row">
-  
-                  <div class="col-lg-3 col-md-3 col-sm-3 d-flex align-items-stretch">
-                
-                <img src="{{article.thumb.url}}" width="100%" />
+
+
+
+
+
+<a href="single-post.html"><img src="{{latest_article.thumb.url}}" alt="" class="img-fluid"></a>
+
+<div class="post-meta"><span class="date">{{ latest_article.category }}</span> <span class="mx-1">&bullet;</span> <span>{{ latest_article.date }}</span></div>
+
+<h2><a href="{% url 'details' latest_article.slug %}">{{ latest_article.title }}</a></h2>
+<p class="mb-4 d-block">{{ latest_article.body|truncatechars:300|safe}}</p>
+
+<small class="text-muted">{{ latest_article.views }} views</small>
+<small class="text-muted">{{ latest_article.get_read_time }} min read</small><br><br>
+             
+              <div class="d-flex align-items-center author">
+                <div class="photo"><img src="{% static 'blog/assets/img/person-1.jpg' %}" alt="" class="img-fluid"></div>
+                <div class="name">
+                  <h3 class="m-0 p-0">Cameron Williamson</h3>
+                </div>
               </div>
-  
-              <div class="col-lg-9 col-md-9 col-sm-9  ">
-                  
-              <span style="font-size: 25px"> <a href="{% url 'details' slug=article.new_slug %}"><b>{{article.title}}</b></a></span>
-            <br>
-            <div><br>
-  <span style="font-size:100%; float:Right;">Published by {{article.author}}</span>   
-  
-           
+            </div>
             
-            {% if user.is_authenticated %} 
-            <span><a href="{% url 'update-post' article.pk %}">Edit</a></span>
-            <span><a href="{% url 'delete-post' article.pk %}">Delete</a></span>
-            <a href="{% url 'logout' %}" class="w3-bar-item w3-button  w3-hide-small">Logout</a>
-            {% endif %}
+
+          </div>
+          
+          <div class="col-lg-8">
+            <div class="row g-5">
+              <div class="col-lg-4 border-start custom-border">
+                {% for article in larticles %}
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="{{article.thumb.url}}" alt="" class="img-fluid" /></a>
+              
+                     
+                  {% if article.category %}
+                            
+                {% if article.category == "Tech" %}
+                  
+                  <div class="post-meta"><span class="date"><a href="{% url 'blogcategory' 'tech' %}">  {{article.category}}  </span></a> <span class="mx-1">&bullet;</span> <span>{{ latest_article.date }}</span></div>
+  
+                        
+                {% elif article.category == "Enterprenuership" %}
+                   
+                  <div class="post-meta"><span class="date"><a href="{% url 'blogcategory' 'entrepreneurship' %}"> {{article.category}} </a></span></a> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                    
+                {% else %}
+                  <a href="https://yandytech.org/category/others/">others</a>
+                {% endif %}
+                {% endif %}
+                
+                  <h2><a href="{% url 'details' article.slug %}">{{article.title}}</a></h2>
+                  <small class="text-muted">{{ article.views }} views</small>&nbsp;&nbsp;&nbsp;
+                  <small class="text-muted">{{ article.get_read_time }} min read</small>
+                </div>
+                {% endfor %}
+                
+             
+              </div>
+              <div class="col-lg-4 border-start custom-border">
+            {% for art in articles %}
+
+                <div class="post-entry-1">
+                  <a href="single-post.html"><img src="{{art.thumb.url}}" alt="" class="img-fluid"></a>
+              
+  {% if art.category %}
+            
+{% if art.category == "Tech" %}
+  
+  <div class="post-meta"><span class="date"><a href="{% url 'blogcategory' 'Tech' %}">  {{art.category}}  </span></a> <span class="mx-1">&bullet;</span> <span>{{art.date}} </span></div>
+                  
+{% elif art.category == "Enterprenuership" %}
+   
+  <div class="post-meta"><span class="date"><a href="{% url 'blogcategory' 'Entrepreneurship' %}"> {{art.category}} </a></span></a> <span class="mx-1">&bullet;</span> <span>{{art.date}}</span></div>
+    
+{% else %}
+  
+  <div class="post-meta"><span class="date"><a href="{% url 'blogcategory' 'others' %}"> others </span></a> <span class="mx-1">&bullet;</span> <span>{{art.date}} </span></div>
+   
+{% endif %}
+{% endif %}
+
+                  <h2><a href="{% url 'details' art.slug %}">{{art.title}}</a></h2>
+                  
+                  <small class="text-muted">{{ art.views }} views</small>&nbsp;&nbsp;&nbsp;
+                  <small class="text-muted">{{ art.get_read_time }} min read</small>
+                </div>
+                {% endfor %}
+                
+               
+              </div>
+
+              <!-- Trending Section -->
+              <div class="col-lg-4">
+
+                <div class="trending">
+                  <h3>Trending</h3>
+                  <ul class="trending-post">
+                    {% for a in view_article %}
+                    <li>
+                      <a href="{% url 'details' a.slug %}">
+                        <span class="number">1</span>
+                        <h3>{{a.title}}</h3>
+                        <span class="author">Jane Cooper</span>
+                        
+                      </a>
+                    </li>
+                    {% endfor %}
+                  
+                 
+                    
+                    
+                  </ul>
+                </div>
+
+              </div> <!-- End Trending Section -->
+            </div>
+          </div>
+
+        </div> <!-- End .row -->
+      </div>
+    </section> <!-- End Post Grid Section -->
+  
+  
+    <!-- ======= Culture Category Section ======= -->
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
+   
+
+
+
+      
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          {% for article in latest_articles %}
+          <h2> {{ article.category }}</h2>
+          <div><a href="{% url 'blogcategory' 'Enterprenuership' %}" class="more">See All Enterprenuership</a></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9">
+
+            <div class="d-lg-flex post-entry-2">
+              <a href="{% url 'details' article.slug %}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+                <img src="{{ article.thumb.url }}" alt="" class="img-fluid">
+              </a>
+              <div>
+               
+
+                
+                <div class="post-meta"><span class="date">{{ article.category }}</span> <span class="mx-1">&bullet;</span> <span>{{ article.date }}</span></div>
+                <h3><a href="{% url 'details' article.slug %}l">{{ article.title }}</a></h3>
+                <p >{{ article.body|truncatechars:250|safe}}</p><br>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="{% static 'blog/assets/img/person-2.jpg' %}" alt="" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">Wade Warren</h3>
+                  </div>
+                </div>
+                {% endfor %}   
+              </div>
+            </div>
+          
+          
+            
+    
+            <div class="row">
+              <div class="col-lg-4">
+                {% for article in category_articles %}
+                <div class="post-entry-1 border-bottom">
+                  <a href="{% url 'details' article.slug %}"><img src="{{ article.thumb.url }}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">{{ article.category }}</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="{% url 'details' article.slug %}">{{ article.title }}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span><br>
+                  <p class="mb-4 d-block">{{ article.body|truncatechars:100|safe}}</p>
+                </div>
+                {% endfor %}
+             
+              </div>
+              <div class="col-lg-8">
+                <div class="post-entry-1">
+                  
+        {% if category_views %}
+    
+            
+  
+                  <a href="{% url 'details' category_views.slug %}"><img src="{{ category_views.thumb.url }}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">{{ category_views.category }}</span> <span class="mx-1">&bullet;</span> <span>{{ category_views.date }}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'details' category_views.slug %}">{{ category_views.title }}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">{{ category_views.body|truncatechars:1000|safe}}</p>
+                </div>
+                {% else %}
+                <p>No articles found in {{ category.name }}</p>
+              {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            {% for a in top_category_view %}
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">{{ a.category }}</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="{% url 'details' a.slug %}">{{ a.title }}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
             </div>
 
-          </div>
-          </div>
+{% endfor %}
           </div>
         </div>
-  
       </div>
-  
-      {% endfor %}
-      </div>
+    </section><!-- End Culture Category Section -->
+
+
+
+
+    <!-- ======= Business Category Section ======= -->
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
+
+   
+
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          {% for article in latest_tech %}
+          <h2>{{ article.category}}</h2>
+          <div><a href="{% url 'blogcategory' 'Tech' %}" class="more">See All Tech</a></div>
         </div>
-    </section><!-- End Team Section -->
+
+        <div class="row">
+          <div class="col-md-9 order-md-2">
+
+            <div class="d-lg-flex post-entry-2">
+              <a href="{% url 'details' article.slug %}" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+                <img src="{{ article.thumb.url }}" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">{{ article.category}}</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                <h3><a href="{% url 'details' article.slug %}">{{ article.title}}</a></h3>
+                <p>{{ article.body|truncatechars:200|safe}}</p>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="{% static 'blog/assets/img/person-4.jpg' %}" alt="" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">{{ article.author}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            <div class="row">
+              <div class="col-lg-4">
+                {% for article in top_tech_view %}
+                <div class="post-entry-1 border-bottom">
+                  <a href="{% url 'details' article.slug %}"><img src="{{ article.thumb.url }}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">{{ article.category }}</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                  <h2 class="mb-2"><a href="{{ article.thumb.url }}">{{ article.title }}</a></h2>
+                  <span class="author mb-3 d-block">{{ article.author }}</span>
+                  
+                </div>
+                {% endfor %}
+
+               
+              </div>
+              <div class="col-lg-8">
+                {% for article in top_tech_view %}
+                <div class="post-entry-1">
+                  <a href="{% url 'details' article.slug %}"><img src="{{ article.thumb.url }}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">{{ article.category}}</span> <span class="mx-1">&bullet;</span> <span>{{ article.date}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'details' article.slug %}">{{ article.title }}</a></h2>
+                  <span class="author mb-3 d-block">{{ article.author }}</span>
+                  <p class="mb-4 d-block">{{ article.body|truncatechars:200|safe}}</p>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            {% for article in tech_articles %}
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">{{ article.category }}</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+              <h2 class="mb-2"><a href="{% url 'details' article.slug %}">{{ article.title }}</a></h2>
+              <span class="author mb-3 d-block">{{ article.author }}</span>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </section><!-- End Business Category Section -->
 
 
-</main>
 
+{% if comments %}
+  <h3>Comments</h3>
+  <ul class="list-unstyled">
+    {% for comment in comments %}
+      <li class="media">
+        <div class="media-body">
+          <h5 class="mt-0 mb-1">{{ comment.name }}</h5>
+          <p>{{ comment.body }}</p>
+          <small class="text-muted">{{ comment.created_at }}</small>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+    
+    
+  </main><!-- End #main -->
 <!-- ======= Footer ======= -->
 <footer id="footer">
 
@@ -148,15 +442,10 @@
       &copy; Copyright <strong><span>YandyTech</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/enno-free-simple-bootstrap-template/ -->
+      
     </div>
   </div>
 </footer><!-- End Footer -->
-
-
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -172,9 +461,20 @@
 <script src="{% static 'assets/js/main.js' %}"></script>
 
 
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'blog/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'blog/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'blog/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'blog/assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'blog/assets/js/main.js' %}"></script>
+
 </body>
 
 </html>
-
-
-
