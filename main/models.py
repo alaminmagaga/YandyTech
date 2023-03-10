@@ -104,11 +104,7 @@ class Event(models.Model):
             return self.image.url
     
             
-    def snippet(self):
-        return self.description[:50]+"..."
-
-    def snippet1(self):
-        return self.website[:27]+"..."
+   
     def get_absolute_url(self):
         return reverse('home')
 

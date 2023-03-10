@@ -117,7 +117,7 @@
             <div class="card-body">
         
              
-               <img src="{{ scholarship.image_url|default_if_none:'#' }}" width="100%"  width="280" height="200"/>
+               <img src="{{ scholarship.image.url }}" width="100%"   height="150"/>
             
              
              
@@ -129,14 +129,14 @@
               <br>
               <div class="container" style="height:100px;overflow:hidden;">
               <span style="font-size: 10px;">DESCRIPTION</span>
-              <p>
-                {{scholarship.snippet}}
+              <a href="{% url 'scholarship-details' slug=scholarship.slug %}"> <p>
+                {{ scholarship.description|truncatechars:50}}
               
             
-              </p>
+              </p></a>
 </div>
               <span style="font-size: 10px;">WEBSITE</span> <br>
-              <span><a href="{{scholarship.website}}">{{scholarship.snippet1}}</a></span>
+              <span><a href="{{scholarship.website}}">{{ scholarship.website|truncatechars:23}}</a></span>
            
 
 

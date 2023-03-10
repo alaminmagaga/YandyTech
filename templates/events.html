@@ -102,10 +102,11 @@
 <br>
       <div class="row">
         {% for event in events %}
+       
         <div class="col-lg-3 col-md-6 col-sm-12 d-flex align-items-stretch" style="margin-top: 10px;">
-          <div class="card" >
+          <div class="card" style="width:100%;margin: auto;">
             <div class="card-body">
-              <img src="{{ event.image_url|default_if_none:'#' }}" width="280" height="200" />
+              <img src="{{ event.image.url}}" width="100%"   height="150"/>
               
              <div class="container">
               <div class="container" style="height:50px;overflow:hidden;">
@@ -114,12 +115,12 @@
             <br>
             <div class="container" style="height:100px;overflow:hidden;">
               <span style="font-size: 10px;">DESCRIPTION</span>
-              <p>
-                {{event.snippet}}
-              </p>
+              <a href="{% url 'event-details' slug=event.slug %}">   <p>
+                {{ event.description|truncatechars:50}}
+              </p></a>
             </div>
               <span style="font-size: 10px;">WEBSITE</span> <br>
-              <span><a href="{{event.website}}">{{event.snippet1}}</a></span>
+              <span><a href="{{event.website}}">{{ event.website|truncatechars:23}}</a></span>
 
 
               <br><br>

@@ -145,12 +145,24 @@
                 <div class="col-lg-10 col-md-8 col-sm-10  ">
                   <span><a href="{% url 'jobdetail' job.pk %}" style="text-decoration: underline;"><b>  {{job.position}}</b></a></span><br>
                 <span>{{job.company}}</span><br>
-                {% if job.category %}
-                <span><a href="https://yandytech.org/category/Tech/">{{job.category}}</a></span><br>
-               
+                {% if job.category == "Tech"  %}
+                <span><a href="{% url 'category' 'Tech' %}">{{job.category}}</a></span><br>
+
+                {% elif job.category == "Remote" %}
+                <span><a href="{% url 'category' 'Remote' %}">{{job.category}}</a></span><br>
+
+                {% elif job.category == "Education" %}
+                <span><a href="{% url 'category' 'Education' %}">{{job.category}}</a></span><br>
+
+                {% elif job.category == "NGO" %}
+                <span><a href="{% url 'category' 'Education' %}">{{job.category}}</a></span><br>
+
+
                 {% else %}
-                <span><a href="https://yandytech.org/category/others/">others</a></span><br>
+                <span><a href="{% url 'category' 'others' %}">others</a></span><br>
                  {% endif %}
+
+
                 <span><img src="{% static 'assets/img/remote1.png' %}" width="20px">{{job.location}}</span> &nbsp 
                  {% if job.money %}
                 <span><img src="{% static 'assets/img/money.png' %}" width="12px">{{job.amount}}</span> &nbsp
@@ -161,14 +173,14 @@
                <span><img src="{% static 'assets/img/male.png' %}" width="15px">
                 <img src="{% static 'assets/img/female.png' %}" width="15px">
                 
-                 {{job.number}} people in {{job.category}}
+                 {{job.number}} people 
                  {% endif %}
                 </span> 
                 &nbsp 
                 <span>
                   {% if job.women %}
                   <img src="{% static 'assets/img/female.png' %}" width="12px">
-                  {{job.women}} women in {{job.category}}
+                  {{job.women}} women 
                   {% endif %}
                 </span>
                 <br><br>

@@ -183,7 +183,7 @@ class DeleteFellowshipView(DeleteView):
 
 def events(request):
     events=Event.objects.all().order_by('date')
-    paginator = Paginator(events, 2)  # Show 10  per page
+    paginator = Paginator(events, 4)  # Show 10  per page
     page = request.GET.get('page')
     events = paginator.get_page(page)
     context={'events':events}
@@ -230,15 +230,19 @@ class AddCommunityPost(CreateView):
     fields='__all__'
 # End Community
 
+
+
 # Track Section
 def track(request):
     tracks=Track.objects.all().order_by('date')
-    paginator = Paginator(tracks, 4)  # Show 10  per page
+    paginator = Paginator(tracks, 6)  # Show 10  per page
     page = request.GET.get('page')
     tracks = paginator.get_page(page)
     context={'tracks':tracks}
     ordering=['-id']
     return render(request,'track.html',context)
+
+
 
 
 def trackdetail(request,slug):
@@ -384,9 +388,11 @@ class DeletePostView(DeleteView):
 # Hire Section
 def hire(request):
     hires=Hire.objects.all().order_by('-id')
+    paginator = Paginator(hires, 9)  # Show 10  per page
+    page = request.GET.get('page')
+    hires = paginator.get_page(page)
     cate=HireCategory.objects.all()
     context={'hires':hires,'cate':cate}
-    
     return render(request,'hire.html',context)
 
 class AddHirePost(CreateView):

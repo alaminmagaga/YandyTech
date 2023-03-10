@@ -95,7 +95,7 @@
               <div class="row">
 
                 <div class="col-lg-1 col-md-2 col-sm-2 d-flex align-items-stretch">
-                  <img src="{% static 'assets/img/dev.png' %}" width="100%">
+                  <img src="{{job.image.url}}" width="100%">
                 </div>
         
         
@@ -104,20 +104,20 @@
                 <div class="col-lg-11 col-md-6 col-sm-10  ">
                   <span><a href="{% url 'jobdetail' job.pk %}" style="text-decoration: underline;"><b>  {{job.position}}</b></a></span><br>
                 <span>{{job.company}}</span><br>
-                <span><img src="{% static 'assets/img/remote1.png' %}" width="20px">{{job.location}}</span> &nbsp <span><img src="{% static 'assets/img/money.png' %}" width="12px">{{job.amount}}</span> &nbsp <span><img src="{% static 'assets/img/time3.png' %}" width="12px">{{job.deadline}}</span>
+                <span><img src="{% static 'assets/img/remote1.png' %}" width="20px">{{job.location}}</span> &nbsp <span><img src="{% static 'assets/img/money.png' %}" width="12px">{{job.amount}}</span> &nbsp {% if job.number %}<span><img src="{% static 'assets/img/time3.png' %}" width="12px">{{job.deadline}}</span>  {% endif %}
               <br><br>
               {% if job.number %}
                <span><img src="{% static 'assets/img/male.png' %}" width="15px">
                 <img src="{% static 'assets/img/female.png' %}" width="15px">
                 
-                 {{job.number}} people in {{job.category}}
+                 {{job.number}} people
                  {% endif %}
                 </span> 
                 &nbsp 
                 <span>
                   {% if job.women %}
                   <img src="{% static 'assets/img/female.png' %}" width="12px">
-                  {{job.women}} women in {{job.category}}
+                  {{job.women}} women
                   {% endif %}
                 </span>
         

@@ -170,6 +170,33 @@
         </div>
 
       </div>
+
+      <div class="pagination">
+        <span class="page-links">
+          {% if hires.has_previous %}
+         
+          &nbsp <a href="?page=1"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> &laquo; first</button></a>
+          
+          &nbsp<a href="?page={{ hiress.previous_page_number }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> previous</button></a>
+          {% endif %}
+      
+          
+      
+          {% if hires.has_next %}
+          &nbsp <a href="?page={{ hires.next_page_number }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> next</button></a>
+           
+          &nbsp<a href="?page={{ hires.paginator.num_pages }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> last &raquo;</button></a>
+           
+           
+          {% endif %}
+          
+          <span class="page-current">
+            
+            &nbsp  Page {{ hires.number }} of {{ hires.paginator.num_pages }}
+          </span>
+      
+        </span>
+      </div>
     </section>
     
     <!-- End Team Section -->
