@@ -56,6 +56,17 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
   
 </head>
 
@@ -75,7 +86,7 @@
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
           {% if user.is_authenticated %} 
-          <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'profile' %}" style="background-color: white;color: grey;" >{{user.username}}</a></li>
           {% else %}
           <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
           {% endif %}
@@ -110,34 +121,37 @@
               
              <div class="container">
               <div class="container" style="height:50px;overflow:hidden;">
-              <h5><a href="{% url 'event-details' slug=event.slug %}"><b>{{event.title}}</b></a></h5>
+              <h4><a href="{% url 'event-details' slug=event.slug %}"><b>{{event.title}}</b></a></h5>
             </div>
             <br>
             <div class="container" style="height:100px;overflow:hidden;">
-              <span style="font-size: 10px;">DESCRIPTION</span>
+              <span style="font-size: 10px;"><b>DESCRIPTION</b></span>
               <a href="{% url 'event-details' slug=event.slug %}">   <p>
-                {{ event.description|truncatechars:50}}
+                {{ event.description|truncatechars:70}}
               </p></a>
             </div>
-              <span style="font-size: 10px;">WEBSITE</span> <br>
+            <div class="container">
+              <span style="font-size: 10px;"><b>WEBSITE</b></span> <br>
               <span><a href="{{event.website}}">{{ event.website|truncatechars:23}}</a></span>
+</div>
 
-
-              <br><br>
-              <span style="font-size: 10px;">EVENTS DATE</span>
+<div class="container">
+              <span style="font-size: 10px;"><b>EVENTS DATE</b></span>
               <br>
               <span>{{event.eventdate}}</span>
-
-              <br><br>
-              <span style="font-size: 10px;">DEADLINE</span>
+</div>
+           
+<div class="container">
+              <span style="font-size: 10px;"><b>DEADLINE</b></span>
               <br>
               <span>{{event.deadline}}</span>
+</div>
 
-              <br><br>
+<div class="container">
               <span style="font-size: 10px;">LOCATION</span>
               <br>
               <span>{{event.location}}</span>
-              <br>
+           </div><br>
               {% if user.is_authenticated %} 
               <span><a href="{% url 'edit-event' event.pk %}">Edit</a></span>
               <span><a href="{% url 'delete-event' event.pk %}">Delete</a></span>
@@ -157,33 +171,23 @@
     </div>
 
     <br><br>
-    <div class="pagination">
-      <span class="page-links">
+    <div class="text-start py-4">
+      <div class="custom-pagination">
         {% if events.has_previous %}
-       
-          <a href="?page=1"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> &laquo; first</button></a>
-        
-          <a href="?page={{ events.previous_page_number }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> previous</button></a>
+          <a href="?page={{ events.previous_page_number }}" class="prev">Previous</a>
         {% endif %}
-    
-        
-    
+        {% for i in events.paginator.page_range %}
+          {% if events.number == i %}
+            <a href="?page={{ i }}" class="active">{{ i }}</a>
+          {% else %}
+            <a href="?page={{ i }}">{{ i }}</a>
+          {% endif %}
+        {% endfor %}
         {% if events.has_next %}
-        <a href="?page={{ events.next_page_number }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> next</button></a>
-         
-        <a href="?page={{ events.paginator.num_pages }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> last &raquo;</button></a>
-         
-         
+          <a href="?page={{ events.next_page_number }}" class="next">Next</a>
         {% endif %}
-        
-        <span class="page-current">
-          
-          Page {{ events.number }} of {{ events.paginator.num_pages }}
-        </span>
-    
-      </span>
+      </div>
     </div>
-    
     
    
     

@@ -27,6 +27,17 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
   
 </head>
 
@@ -47,7 +58,7 @@
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
           {% if user.is_authenticated %} 
-          <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'profile' %}" style="background-color: white;color: grey;">{{user.username}}</a></li>
           {% else %}
           <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
           {% endif %}
@@ -136,6 +147,25 @@
 
     {% endfor %}
 <br>
+
+<div class="text-start py-4">
+  <div class="custom-pagination">
+      {% if category_post.has_previous %}
+          <a href="?page={{ category_post.previous_page_number }}" class="prev">Previous</a>
+      {% endif %}
+      {% for i in category_post.paginator.page_range %}
+          {% if category_post.number == i %}
+              <a href="?page={{ i }}" class="active">{{ i }}</a>
+          {% else %}
+              <a href="?page={{ i }}">{{ i }}</a>
+          {% endif %}
+      {% endfor %}
+      {% if category_post.has_next %}
+          <a href="?page={{ category_post.next_page_number }}" class="next">Next</a>
+      {% endif %}
+  </div>
+</div>
+
 
 
 
