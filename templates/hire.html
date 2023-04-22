@@ -39,10 +39,11 @@
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
         
 
+  
   <!-- Favicons -->
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
-
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -57,17 +58,11 @@
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
 
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS Files -->
-  <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
+  
+ 
+   <!-- Template Main CSS Files -->
+   <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
+   <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
   
 </head>
 
@@ -88,7 +83,7 @@
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto active" href="{% url 'hire' %}">Hire</a></li>
           {% if user.is_authenticated %} 
-          <li><a class="getstarted scrollto" href="{% url 'profile' %}" style="background-color: white;color: grey;" class="w3-hover-teal" >{{user.username}}</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
           {% else %}
           <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
           {% endif %}

@@ -118,13 +118,8 @@ class Track(models.Model):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
 
-   
-
     def get_absolute_url(self):
         return reverse('home')
-
-   
-
 
 class Community(models.Model):
     image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
@@ -145,6 +140,7 @@ class Community(models.Model):
 class Job(models.Model):
     image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
     position=models.CharField(max_length=1000, null=True , blank=True)
+    slug=AutoSlugField(populate_from='position',null=True, default=None, unique=True)
     company=models.CharField(max_length=2000, null=True , blank=True)
     location=models.CharField(max_length=1000, null=True , blank=True)
     amount=models.CharField(max_length=255, null=True , blank=True)
@@ -158,6 +154,8 @@ class Job(models.Model):
 
     def __str__(self):
         return self.company
+    
+    
 
 
 
