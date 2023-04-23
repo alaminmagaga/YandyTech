@@ -7,6 +7,12 @@ from datetime import datetime, date,timezone
 from ckeditor.fields import RichTextField
 from autoslug import AutoSlugField
 import math
+import os
+import io
+import PyPDF2
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
+
 
 # Create your models here.
 class Category(models.Model):
@@ -195,9 +201,7 @@ class Hire(models.Model):
     def cv_url(self):
         if self.cv and hasattr(self.cv, 'url'):
             return self.cv.url
-
-  
-
+        
     
     def get_absolute_url(self):
         return reverse('home')
