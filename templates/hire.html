@@ -56,6 +56,18 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
+
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
   
 </head>
 
@@ -76,7 +88,7 @@
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto active" href="{% url 'hire' %}">Hire</a></li>
           {% if user.is_authenticated %} 
-          <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'profile' %}" style="background-color: white;color: grey;" class="w3-hover-teal" >{{user.username}}</a></li>
           {% else %}
           <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
           {% endif %}
@@ -121,7 +133,7 @@
               <h5>{{hire.skills}}</h5>
               <h6>{{hire.location}}</h6>
 
-              <p>
+              <p style="height:150px;overflow:hidden;">
                 {{hire.description}}
               </p>
               <div class="social">
@@ -169,7 +181,28 @@
       
         </div>
 
+    
+
+      <div class="text-start py-4">
+    <div class="custom-pagination">
+        {% if hires.has_previous %}
+            <a href="?page={{ hires.previous_page_number }}" class="prev">Previous</a>
+        {% endif %}
+        {% for i in hires.paginator.page_range %}
+            {% if hires.number == i %}
+                <a href="?page={{ i }}" class="active">{{ i }}</a>
+            {% else %}
+                <a href="?page={{ i }}">{{ i }}</a>
+            {% endif %}
+        {% endfor %}
+        {% if hires.has_next %}
+            <a href="?page={{ hires.next_page_number }}" class="next">Next</a>
+        {% endif %}
+    </div>
+</div>
+
       </div>
+    </div>
     </section>
     
     <!-- End Team Section -->
@@ -211,6 +244,18 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+
+   <!-- Vendor JS Files -->
+   <script src="{% static 'blog/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+   <script src="{% static 'blog/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+   <script src="{% static 'blog/assets/vendor/aos/aos.js' %}"></script>
+   <script src="{% static 'blog/assets/vendor/php-email-form/validate.js' %}"></script>
+ 
+   <!-- Template Main JS File -->
+   <script src="{% static 'blog/assets/js/main.js' %}"></script>
 
 </body>
 

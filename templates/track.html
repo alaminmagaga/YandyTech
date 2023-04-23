@@ -127,7 +127,37 @@
 
         </div>
 
+        
+
       </div>
+
+      <div class="pagination">
+        <span class="page-links">
+          {% if tracks.has_previous %}
+         
+            <a href="?page=1"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> &laquo; first</button></a>
+          
+            <a href="?page={{ tracks.previous_page_number }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> previous</button></a>
+          {% endif %}
+      
+          
+      
+          {% if tracks.has_next %}
+          <a href="?page={{ tracks.next_page_number }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> next</button></a>
+           
+          <a href="?page={{ tracks.paginator.num_pages }}"><button class="w3-btn  w3-border w3-round-large " style="margin-top:5px;"> last &raquo;</button></a>
+           
+           
+          {% endif %}
+          
+          <span class="page-current">
+            
+            &nbsp Page {{ tracks.number }} of {{ tracks.paginator.num_pages }}
+          </span>
+      
+        </span>
+      </div>
+      
     </section><!-- End Team Section -->
 
 

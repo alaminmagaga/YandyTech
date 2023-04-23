@@ -55,16 +55,41 @@ def about(request):
 
 
 
+# class JobView(ListView):
+#     model=Job
+#     template_name='job.html'
+#     paginate_by = 10 # number of items per page
+#     ordering=['-id']
+#     def get_context_data(self, *args, **kwargs):
+#         cat_menu=Category.objects.all()
+#         context=super(JobView, self).get_context_data(*args,**kwargs)
+#         context['cat_menu']= cat_menu
+#         return context
+
+from django.views.generic import ListView
+from .models import Job, Category
+from django.core.paginator import Paginator
+
 class JobView(ListView):
     model=Job
     template_name='job.html'
     paginate_by = 10 # number of items per page
     ordering=['-id']
+
     def get_context_data(self, *args, **kwargs):
         cat_menu=Category.objects.all()
         context=super(JobView, self).get_context_data(*args,**kwargs)
         context['cat_menu']= cat_menu
+
+        # add pagination to the context
+        job_list = self.get_queryset()
+        paginator = Paginator(job_list, self.paginate_by)
+        page = self.request.GET.get('page')
+        jobs = paginator.get_page(page)
+
+        context['jobs'] = jobs
         return context
+
 
 
 
@@ -97,9 +122,6 @@ class DeleteJobView(DeleteView):
 
 
 # Scholarship Section
-
-
-from django.core.paginator import Paginator
 
 def scholarship(request):
     scholarships=Scholarship.objects.all().order_by('date')
@@ -141,7 +163,7 @@ class DeleteScholarshipView(DeleteView):
 # Fellowship Section
 def fellowship(request):
     fellowships=Fellowship.objects.all().order_by('date')
-    paginator = Paginator(fellowships, 4)  # Show 10  per page
+    paginator = Paginator(fellowships, 2)  # Show 10  per page
     page = request.GET.get('page')
     fellowships = paginator.get_page(page)
     context={'fellowships':fellowships}
@@ -230,15 +252,19 @@ class AddCommunityPost(CreateView):
     fields='__all__'
 # End Community
 
+
+
 # Track Section
 def track(request):
     tracks=Track.objects.all().order_by('date')
-    paginator = Paginator(tracks, 4)  # Show 10  per page
+    paginator = Paginator(tracks, 6)  # Show 10  per page
     page = request.GET.get('page')
     tracks = paginator.get_page(page)
     context={'tracks':tracks}
     ordering=['-id']
     return render(request,'track.html',context)
+
+
 
 
 def trackdetail(request,slug):
@@ -284,10 +310,6 @@ def blog(request):
     top_tech_view = Article.objects.filter(category=tech_category).order_by('-views')[:2]
     second_tech_view = Article.objects.filter(category=tech_category).order_by('-views')[1:2]
     cate=BlogCategory.objects.all()
-
-    
-   
-
     context = {'larticles': larticles, 'articles': articles, 'latest_article': latest_article, 'view_article': view_article,'cate':cate,'category_articles': category_articles,'latest_articles':latest_articles,'category_views':category_views,'top_category_view':top_category_view, 'tech_articles':tech_articles, 'latest_tech':latest_tech, 'top_tech_view':top_tech_view, 'second_tech_view':second_tech_view}
     return render(request, 'blog.html', context)
 
@@ -349,12 +371,16 @@ def reply(request, slug, comment_id):
 
 
 
-def BlogCategoryView(request,cats):
-    category_post=Article.objects.filter(category=cats)
-    cate=BlogCategory.objects.all()
-    context={'cats':cats ,'category_post':category_post,'cate':cate}
-    ordering=['id']
-    return render(request,'blog_category.html',context)
+def BlogCategoryView(request, cats):
+    category_post = Article.objects.filter(category=cats)
+    paginator = Paginator(category_post, 2) # show 10 articles per page
+    page = request.GET.get('page')
+    category_post = paginator.get_page(page)
+    cate = BlogCategory.objects.all()
+    context = {'cats':cats, 'category_post':category_post, 'cate':cate}
+    return render(request, 'blog_category.html', context)
+
+
 
 def BlogCategoryL(request):
     cate=BlogCategory.objects.all()
@@ -382,12 +408,15 @@ class DeletePostView(DeleteView):
 
 
 # Hire Section
+
 def hire(request):
-    hires=Hire.objects.all().order_by('-id')
-    cate=HireCategory.objects.all()
-    context={'hires':hires,'cate':cate}
-    
-    return render(request,'hire.html',context)
+    hires = Hire.objects.all().order_by('-id')
+    paginator = Paginator(hires, 4) # show 4 hires per page
+    page = request.GET.get('page')
+    hires = paginator.get_page(page)
+    cate = HireCategory.objects.all()
+    context = {'hires': hires, 'cate': cate}
+    return render(request, 'hire.html', context)
 
 class AddHirePost(CreateView):
     model=Hire
@@ -406,12 +435,18 @@ class DeleteHireView(DeleteView):
     template_name="delete_hire.html"
     success_url=reverse_lazy('hire')
 
-def HireCategoryView(request,cats):
-    category_post=Hire.objects.filter(category=cats)
-    cate=HireCategory.objects.all()
-    context={'cats':cats ,'category_post':category_post,'cate':cate}
-    ordering=['id']
-    return render(request,'hire_category.html',context)
+
+
+def HireCategoryView(request, cats):
+    category_post = Hire.objects.filter(category=cats)
+    paginator = Paginator(category_post, 4) # show 4 category posts per page
+    page = request.GET.get('page')
+    category_post = paginator.get_page(page)
+    cate = HireCategory.objects.all()
+    context = {'cats': cats, 'category_post': category_post, 'cate': cate}
+    ordering = ['id']
+    return render(request, 'hire_category.html', context)
+
 
 def HireCategoryL(request):
     cate=HireCategory.objects.all()
@@ -422,12 +457,21 @@ def HireCategoryL(request):
 # End hire
 
 
-# Category
-def CategoryView(request,cats):
-    category_post=Job.objects.filter(category=cats)
-    cate=Category.objects.all()
-    context={'cats':cats ,'category_post':category_post,'cate':cate}
-    return render(request,'category.html',context)
+# # Category
+# def CategoryView(request,cats):
+#     category_post=Job.objects.filter(category=cats)
+#     cate=Category.objects.all()
+#     context={'cats':cats ,'category_post':category_post,'cate':cate}
+#     return render(request,'category.html',context)
+
+def CategoryView(request, cats):
+    category_post = Job.objects.filter(category=cats)
+    paginator = Paginator(category_post, 5) # Show 10 jobs per page
+    page = request.GET.get('page')
+    category_post = paginator.get_page(page)
+    cate = Category.objects.all()
+    context = {'cats': cats, 'category_post':category_post, 'cate': cate}
+    return render(request, 'category.html', context)
 
 def CategoryL(request):
     catelist=Category.objects.all()
