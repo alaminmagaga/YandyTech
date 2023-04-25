@@ -44,10 +44,6 @@
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
         
            
- 
-    
-    
-  
 
 
   <!-- Favicons -->
@@ -68,12 +64,7 @@
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
 
-   <!-- Vendor CSS Files -->
-   <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-   <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-   <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-   <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-   <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  
  
    <!-- Template Main CSS Files -->
    <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
@@ -98,7 +89,7 @@
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
           {% if user.is_authenticated %} 
-          <li><a class="getstarted scrollto" href="{% url 'profile' %}" style="background-color: white;color: grey;">{{user.username}}</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'profile' %}">{{user.username}}</a></li>
           {% else %}
           <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
           {% endif %}
@@ -154,7 +145,7 @@
         
         
                 <div class="col-lg-10 col-md-8 col-sm-10  ">
-                  <span><a href="{% url 'jobdetail' job.pk %}" style="text-decoration: underline;"><b>  {{job.position}}</b></a></span><br>
+                  <span><a href="{% url 'jobdetail' slug=job.slug %}" style="text-decoration: underline;"><b>  {{job.position}}</b></a></span><br>
                 <span>{{job.company}}</span><br>
                 {% if job.category == "Tech"  %}
                 <span><a href="{% url 'category' 'Tech' %}">{{job.category}}</a></span><br>

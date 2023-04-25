@@ -30,29 +30,7 @@
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
 
-  <!-- Favicons -->
-  <link href="{% static 'blog/assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'blog/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS Files -->
-  <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
-
-
-        
-
+  
   <!-- Favicons -->
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
   <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
@@ -71,12 +49,7 @@
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
 
-   <!-- Vendor CSS Files -->
-   <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-   <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-   <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-   <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-   <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  
  
    <!-- Template Main CSS Files -->
    <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
@@ -100,13 +73,13 @@
         <ul>
           <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
           <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
-          <li><a class="nav-link scrollto active" href="#featured-services">Resources</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
+          <li><a class="nav-link scrollto " href="#featured-services">Resources</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
           {% if user.is_authenticated %} 
           <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
           {% else %}
-          <li><a class="getstarted scrollto" href="{% url 'support' %}" style="background-color:teal;" >Support Us</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
           {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -117,8 +90,13 @@
 
   
   <main id="main">
-    
-  
+
+    <div class="section-title" style="padding-top: 100px;">
+        
+      <h2 style="color: teal;">Blog</h2>
+      <h5>Tips & best practices for digital skills, securing decent jobs and economic Opportunities</h5>
+      <a href="https://forms.gle/8FR8fcKCFsHLLsFt5"> <h6 style="text-decoration: underline;"><b>Have a blog post? Submit here &#8594 </b> </h6></a>
+    </div>
 
     <!-- ======= Post Grid Section ======= -->
     <section id="posts" class="posts">

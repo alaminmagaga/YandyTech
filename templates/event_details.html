@@ -23,23 +23,23 @@
  
 
   <!-- HTML Meta Tags -->
-  <title> {{job.position}} at  {{job.company}}</title>
+  <title> Events Details</title>
   <meta name="description" content="Community for Decent Jobs and Economic Growth Opportunities">
 
   <!-- Facebook Meta Tags -->
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content=" {{job.position}} at  {{job.company}}">
+  <meta property="og:title" content=" {{event.position}} at  {{event.company}}">
   <meta property="og:description" content="Community for Decent Jobs and Economic Growth Opportunities">
-  <meta property="og:image" content="{{ job.image_url }}">
+  <meta property="og:image" content="{{ event.image_url }}">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="yandytech.org">
  
-  <meta name="twitter:title" content=" {{job.position}} at  {{job.company}}">
+  <meta name="twitter:title" content=" {{event.position}} at  {{event.company}}">
   <meta name="twitter:description" content="Community for Decent Jobs and Economic Growth Opportunities">
-  <meta name="twitter:image" content="{{ job.image_url }}">
+  <meta name="twitter:image" content="{{ event.image_url }}">
 
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
@@ -124,7 +124,7 @@
                 
                 
                 
-                <div class="col-lg-6 col-md-6 col-sm-10  " style="padding-top:50px; padding-left:20px;">
+                <div class="col-lg-6 col-md-6 col-sm-10  " style="padding-top:20px; padding-left:20px;">
                     
                   <span><b>  {{event.title}}</b></span><br>
                   
@@ -134,7 +134,7 @@
                 <br><br>
                 
                 {% if event.deadline %}
-                <span>Dateline: {{event.deadline}}</span> &nbsp
+                <span><b>Deadline</b>: {{event.deadline}}</span> &nbsp
                 {% endif %}
                 
                  

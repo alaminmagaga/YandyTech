@@ -7,6 +7,12 @@ from datetime import datetime, date,timezone
 from ckeditor.fields import RichTextField
 from autoslug import AutoSlugField
 import math
+import os
+import io
+import PyPDF2
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
+
 
 # Create your models here.
 class Category(models.Model):
@@ -118,13 +124,8 @@ class Track(models.Model):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
 
-   
-
     def get_absolute_url(self):
         return reverse('home')
-
-   
-
 
 class Community(models.Model):
     image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
@@ -145,6 +146,7 @@ class Community(models.Model):
 class Job(models.Model):
     image=models.ImageField(null=True, blank=True,default="chevening.png", upload_to="images/")
     position=models.CharField(max_length=1000, null=True , blank=True)
+    slug=AutoSlugField(populate_from='position',null=True, default=None, unique=True)
     company=models.CharField(max_length=2000, null=True , blank=True)
     location=models.CharField(max_length=1000, null=True , blank=True)
     amount=models.CharField(max_length=255, null=True , blank=True)
@@ -158,6 +160,8 @@ class Job(models.Model):
 
     def __str__(self):
         return self.company
+    
+    
 
 
 
@@ -197,9 +201,7 @@ class Hire(models.Model):
     def cv_url(self):
         if self.cv and hasattr(self.cv, 'url'):
             return self.cv.url
-
-  
-
+        
     
     def get_absolute_url(self):
         return reverse('home')

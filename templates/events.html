@@ -16,7 +16,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>YandyTech</title>
+  <title>Events</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -46,28 +46,31 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+ 
+  
+ <!-- Favicons -->
+ <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
+ <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
+ 
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
+ <!-- Vendor CSS Files -->
+ <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'blog/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+ <!-- Template Main CSS File -->
+ <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+ <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
+
+ 
 
   <!-- Template Main CSS Files -->
   <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
   <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
-  
 </head>
 
 <body>
@@ -120,19 +123,20 @@
               <img src="{{ event.image.url}}" width="100%"   height="150"/>
               
              <div class="container">
-              <div class="container" style="height:50px;overflow:hidden;">
-              <h4><a href="{% url 'event-details' slug=event.slug %}"><b>{{event.title}}</b></a></h5>
+              <div class="container" style="height:80px;overflow:hidden;">
+              <h4><a href="{% url 'event-details' slug=event.slug %}"><b>{{event.title|truncatechars:100}}</b></a></h5>
             </div>
             <br>
-            <div class="container" style="height:100px;overflow:hidden;">
+            <div class="container" style="height:150px;overflow:hidden;">
               <span style="font-size: 10px;"><b>DESCRIPTION</b></span>
               <a href="{% url 'event-details' slug=event.slug %}">   <p>
-                {{ event.description|truncatechars:70}}
+                {{ event.description|truncatechars:100}}
               </p></a>
             </div>
+            <br>
             <div class="container">
               <span style="font-size: 10px;"><b>WEBSITE</b></span> <br>
-              <span><a href="{{event.website}}">{{ event.website|truncatechars:23}}</a></span>
+              <span><a href="{{event.website}}">{{ event.website|truncatechars:20}}</a></span>
 </div>
 
 <div class="container">
