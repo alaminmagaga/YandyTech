@@ -1,9 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-     <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K4DW5LJMJ4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,57 +11,50 @@
 
   gtag('config', 'G-K4DW5LJMJ4');
 </script>
-
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   
   <!-- HTML Meta Tags -->
-  <title>DigiLab</title>
-  <meta name="description" content="Get access to our courses & programmes that will prepare you for the future jobs.">
+  <title>Digital Lab</title>
+  <meta name="description" content="We are a youth-led, youth-focused tech social impact organisation that promotes inclusive, sustainable and equitable decent jobs, economic growth opportunities, clean energy and localising technology for ALL.">
 
   <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="http://www.yandytech.org/digiLabs/">
+  <meta property="og:url" content="http://www.yandytech.org/about/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="DigiLab">
-  <meta property="og:description" content="Get access to our courses & programmes that will prepare you for the future jobs.">
+  <meta property="og:title" content="About US">
+  <meta property="og:description" content="We are a youth-led, youth-focused tech social impact organisation that promotes inclusive, sustainable and equitable decent jobs, economic growth opportunities, clean energy and localising technology for ALL.">
   <meta property="og:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
 
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="yandytech.org">
-  <meta property="twitter:url" content="http://www.yandytech.org/digiLabs/">
-  <meta name="twitter:title" content="DigiLab">
-  <meta name="twitter:description" content="Get access to our courses & programmes that will prepare you for the future jobs.">
+  <meta property="twitter:url" content="http://www.yandytech.org/about/">
+  <meta name="twitter:title" content="About US">
+  <meta name="twitter:description" content="We are a youth-led, youth-focused tech social impact organisation that promotes inclusive, sustainable and equitable decent jobs, economic growth opportunities, clean energy and localising technology for ALL.">
   <meta name="twitter:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
 
   <!-- Meta Tags Generated via https://www.opengraph.xyz -->
         
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
+  <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
   
- <!-- Favicons -->
- <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
- <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
- 
- <!-- Google Fonts -->
- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+<!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
- <!-- Vendor CSS Files -->
- <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
- <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
- <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
- <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
- <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
- <!-- Template Main CSS File -->
- <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
- <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
 
- 
-
-  <!-- Template Main CSS Files -->
-  <link href="{% static 'blog/assets/css/variables.css' %}" rel="stylesheet">
-  <link href="{% static 'blog/assets/css/main.css' %}" rel="stylesheet">
-  
 </head>
 
 <body>
@@ -72,12 +64,12 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <a href="{% url 'home' %}"><img src="{% static 'assets/img/yt1.png' %}" height="70px" alt=""></a>
-    
+      
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto " href="{% url 'home' %}">Home</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'about' %}">About</a></li>
           <li><a class="nav-link scrollto active" href="#featured-services">Resources</a></li>
           <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
@@ -92,117 +84,367 @@
 
     </div>
   </header><!-- End Header -->
-<main>
+<main id="main">
+<br>
+<br>
+  <!-- ======= About Section ======= -->
 
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title">
+        <br>
+        <h2 style="color: teal;">Digital Technology & Innovation Lab <br>(DigiLabs)</h2>
+        <h5>DigiLabs is an initiative of YandyTech localising & supporting young people with Tech Education and Mentorship to <br>prepare the next billion creators and users for the future jobs.
+        </h5>
+     
+      </div>
 
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
-      <div class="container">
+      <div class="row" style="padding-top: 50px;">
+        
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <div class="section-title">
 
-        <div class="section-title">
-          <br>
-          <h2 style="color: teal;">Welcome to DigiLabs</h2>
-          <h5>Get access to our courses & programmes that will prepare you for the future jobs.</h5>
-         <a href="mailto:info@yandytech.org"><h6 style="text-decoration: underline;"> <b> Reachout to sponsor a course or programmes &#8594 </b> </h6></a> 
-        </div>
-      
-        <div class="row">
-{% for track in tracks %}
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="margin-top: 10px;">
-            <div class="member">
-              <img src="{{ track.image_url|default_if_none:'#' }}" width="320" height="200"/>
-              <a href="{% url 'track-details' slug=track.slug %}"> <h4>{{track.title}}</h4></a>
-             
-              <span>Deadline: {{track.deadline}}</span>
-              <p>
-                {{track.snippet}}
-              </p>
-              <div class="social">
-                <a href="{{track.link}}"><button type="submit" class="btn btn-primary" style = "background-color: teal">APPLY</button></a>
+                <h2 style="color: teal;">Overview</h2>
               </div>
-              <br>
-              {% if user.is_authenticated %} 
-              <span><a href="{% url 'edit-track' track.pk %}">Edit</a></span>
-              <span><a href="{% url 'delete-track' track.pk %}">Delete</a></span>
-              {% endif %}
+          <p style="font-size: 18px;">DigiLabs, the tech education and mentorship initiative of YandyTech Community. Our mission is to empower the next generation of tech, creators, users and leaders by providing them with the tools, skills, and guidance they need to succeed in the digital age. We believe that everyone should have access to quality tech education, regardless of their background or socioeconomic status.
 
-            </div>
+        </p>
+          <br>
+    
+
+        </div>
+
+
+        <div class="col-lg-6">
+            <img src="{% static 'assets/img/DigiLab/overview.png' %}" class="img-fluid" alt="">
           </div>
-  {% endfor %}
+      </div>
+
+<br><br>
+<div class="section-title">
+
+  <h2 style="color: teal; ">Projects</h2>
+  <h5>At DigiLabs, we offer a range of projects to help aspiring tech leaders reach their full potential. Our programs include:
+  </h5>
+  
+</div>
+      <div class="row" style="padding-top: 100px;">
+        <div class="col-lg-6">
+          <img src="{% static 'assets/img/DigiLab/coding-bootcamp.jpg' %}" class="img-fluid w3-round-large w3-bottombar w3-topbar w3-rightbar w3-border-teal" alt="">
+        </div>
+
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <div class="section-title">
+
+                <h2 style="color: teal;">Coding Bootcamps</h2>
+                
+              </div>
+           <p style="font-size: 18px;">Our coding bootcamps are designed to teach you the fundamentals of programming, from basic syntax to complex algorithms. Our experienced instructors will guide you through hands-on projects and provide personalised feedback to help you succeed.</p>
+            
+         
+
+      
+          <br>
+    
+
+        </div>
+
+
+       
+      </div>
+
+
+
+
+      <div class="row" style="padding-top: 100px;">
+      
+
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <div class="section-title">
+
+                <h2 style="color: teal;">Data Bootcamps</h2>
+                
+              </div>
+           <p style="font-size: 18px;">Our Data Bootcamp program is designed for individuals who want to develop their skills in data analysis, data visualisation, and data-driven decision-making. Over the course of the program, participants will learn how to:
+          </p>
+          <ul>
+            
+
+
+
+            <li><i class="bi bi-check-circle"></i>Collect, clean, and analyse data using popular data analysis tools such as Python, R, and SQL</li>
+            <li><i class="bi bi-check-circle"></i>Create compelling visualisations and dashboards to communicate insights to stakeholders.</li>
+         
+            <li><i class="bi bi-check-circle"></i>Use data to inform strategic decision-making in a variety of industries, from healthcare to finance.</li>
+
+          </ul>
+         
+
+      
+          <br>
+    
+
+        </div>
+
+        <div class="col-lg-6">
+          <img src="{% static 'assets/img/DigiLab/data-bootcamp.jpg' %}" class="img-fluid w3-round-large w3-bottombar w3-topbar w3-leftbar w3-border-teal" alt="">
+        </div>
+       <p>The Data Bootcamp is a hands-on, project-based program that provides participants with real-world experience working with data. Our experienced instructors will guide you through the program and provide personalised feedback to help you succeed.</p>
+
+        <p>Upon completion of the Data Bootcamp, participants will have developed the skills and knowledge needed to pursue a career in data analysis, business intelligence, or related fields.
+        </p>
+      </div>
+
+      
+
+
+
+      <div class="row" style="padding-top: 100px;">
+      
+        <div class="col-lg-6">
+          <img src="{% static 'assets/img/DigiLab/mentorship.jpg' %}" class="img-fluid w3-round-large w3-bottombar w3-topbar w3-rightbar w3-border-teal" alt="">
+        </div>
+
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <div class="section-title">
+
+                <h2 style="color: teal;">Mentorship Programs</h2>
+                
+              </div>
+           <p style="font-size: 18px;"> Our mentorship programs pair you with experienced tech professionals who can help you navigate the industry and provide advice on everything from career paths to networking.
+
+          </p>
           
+          <br>
+    
 
         </div>
 
         
-
+       
       </div>
 
-      <br>
+<br><br>
+      <div class="section-title">
 
+        <h2 style="color: teal; ">Programmes</h2>
+        <h5>
 
-      <div class="text-start py-4">
-        <div class="custom-pagination">
-          {% if tracks.has_previous %}
-            <a href="?page={{ tracks.previous_page_number }}" class="prev">Previous</a>
-          {% else %}
-            <a class="prev disabled">Previous</a>
-          {% endif %}
+          At DigiLabs, we're proud of the projects we've worked on and the impact we've made. Here are some examples of our recent projects
+          
+        </h5>
+        
+      </div>
+
       
-          {% for i in tracks.paginator.page_range %}
-            {% if tracks.number == i %}
-              <a href="?page={{ i }}" class="active">{{ i }}</a>
-            {% else %}
-              <a href="?page={{ i }}">{{ i }}</a>
-            {% endif %}
-          {% endfor %}
+      <div class="row" style="padding-top: 100px;">
       
-          {% if tracks.has_next %}
-            <a href="?page={{ tracks.next_page_number }}" class="next">Next</a>
-          {% else %}
-            <a class="next disabled">Next</a>
-          {% endif %}
+
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <div class="section-title">
+
+                <h2 style="color: teal;"> Digital Literacy Program</h2>
+                
+              </div>
+           <p style="font-size: 18px;">
+
+            We partnered with a local community centre to provide digital literacy training to underserved populations. Our program helped participants learn how to use technology to improve their lives and connect with others.
+
+          </p>
+    
+         
+
+      
+          <br>
+    
+
         </div>
+
+        <div class="col-lg-6">
+          <img src="{% static 'assets/img/DigiLab/digital-literacy.png' %}" class="img-fluid w3-round-large" alt="">
+        </div>
+      
       </div>
+
+
+      <div class="row" style="padding-top: 100px;">
       
-    <br>      
+        <div class="col-lg-6">
+          <img src="{% static 'assets/img/DigiLab/community-program.png' %}" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <div class="section-title">
+
+                <h2 style="color: teal;">  Virtual Community Program</h2>
+                
+              </div>
+           <p style="font-size: 18px;">
+
+            We hosted a monthly virtual skills sharing program facilitated by YandyTech team or community members to share their skills and expertise to interested community members. Below are some examples of the virtual community programs we hosted from January to date.
+
+          </p>
+    
+         
+
       
-    </section><!-- End Team Section -->
+          <br>
+    
+
+        </div>
+
+        
+      
+      </div>
 
 
 
 
-  </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+      <div class="row" style="padding-top: 50px;">
 
-    <div class="footer-top">
+        
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch " style="margin-top: 10px;">
+          <div class="member w3-card w3-padding">
+            <img src="{% static 'assets/img/DigiLab/elance.jpg' %}" width="100%"/>
+            <div class="w3-container">
+            <a href=""> <h4 class="w3-center"><b>Learn E-Lance</b></h4></a>
+            
+            <span>   We hosted our first virtual event in January 2023 facilitated by Communications and Community Growth Manager on particle skills to become a Freelancer on Upwork.
+</span>
+            
+            
+</div>
 
+          </div>
+        </div>
+
+
+        
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch"  style="margin-top: 10px;">
+          
+          <div class="member w3-card w3-padding">
+            <img src="{% static 'assets/img/DigiLab/product.jpg' %}"  width="100%"/>
+            <div class="w3-container">
+            <a href=""> <h4 class="w3-center"><b>Product Management Essentials</b></h4></a>
+           
+            <span>    We hosted the Product Management Training as our second virtual event in January 2023 facilitated by our valuable Community Member of YandyTech on how to build the skills to make you a badass Product manager.
+
+
+</span>
+            
+</div>
+      
+            
+
+          </div>
+        </div>
+
+
+        
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="margin-top: 10px;">
+          <div class="member w3-card w3-padding">
+            <img src="{% static 'assets/img/DigiLab/AI.jpg' %}" width="100%"/>
+            <div class="w3-container">
+            <a href=""> <h4 class="w3-center"><b>AI Essentials</b></h4></a>
+           
+            <span>    We hosted the AI Training as our third virtual event in February 2023 facilitated by our valuable Community Member of YandyTech on how to build the AI powered softwares and use AI enabled applications.
+            </div>
+</span>
+            
+            </p>
+          
+            
+
+          </div>
+        </div>
+
+        
+        
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" style="margin-top: 10px;">
+          <div class="member w3-card w3-padding">
+            <img src="{% static 'assets/img/DigiLab/javascript.jpg' %}" width="100%"/>
+            <div class="w3-container">
+            <a href=""> <h4 class="w3-center"><b> JavaScripts Essentials</b></h4></a>
+           
+            <span>    We hosted the JavaScripts Training as our fourth virtual event in March 2023 facilitated by our valuable Community Member of YandyTech on how to start with JavaScript as a Newbie and how you can build skills to become a badass JavaScripts developer..
+
+</span>
+            
+            </div>
+          
+            
+
+          </div>
+        </div>
+   
+
+                  
+        
+                </div>
+
+
+
+     
 
     </div>
+  </section><!-- End About Section -->
+  <div class="section-title">
+    <br>
+    <h2 style="color: teal;"> Why DigiLabs?</h2>
+    <h5>
+     
 
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>YandyTech</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
+      At YandyTech, we understand that young people faces challenges of unemployment, underemployment and staying dedicated, committed and disciplined<br> when navigating the into tech due to lack of curated resources and mentorship. 
       
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+    </h5>
+
+  </div> 
+  
+
+  <div class="section-title">
+    <br>
+    <h2 style="color: teal;">Contact</h2>
+    <h5>
+
+      If you have any questions or would like to learn more about DigiLabs, please don't hesitate to get in touch. You can reach us at <a href="">digilabs@yandytech.org.</a> 
+      <a href="mailto:info@yandytech.org"><h6 style="text-decoration: underline;"> <b> Reachout to sponsor a course or programmes &#8594 </b> </h6></a> 
+    </h5>
+
+  </div>
+
+ 
+
+   </main>
+
+
+   <!-- ======= Footer ======= -->
+   <footer id="footer">
+
+
+     <div class="container footer-bottom clearfix">
+       <div class="copyright">
+         &copy; Copyright <strong><span>YandyTech</span></strong>. All Rights Reserved
+       </div>
+       <div class="credits">
+        
+       </div>
+     </div>
+   </footer><!-- End Footer -->
+
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-<!-- Vendor JS Files -->
-<script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+ <!-- Vendor JS Files -->
+ <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+ <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+ <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+ <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+ <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+ <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
 
-<!-- Template Main JS File -->
-<script src="{% static 'assets/js/main.js' %}"></script>
+ <!-- Template Main JS File -->
+ <script src="{% static 'assets/js/main.js' %}"></script>
 
 </body>
 

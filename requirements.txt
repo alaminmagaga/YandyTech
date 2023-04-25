@@ -19,3 +19,4 @@ numpy
 whitenoise
 django-ckeditor==6.5.1
 django-allauth
+"C:/Users/Al Amin/anaconda3/Scripts/activate"

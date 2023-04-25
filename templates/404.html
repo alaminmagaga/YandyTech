@@ -1,1 +1,339 @@
-<h1>there is an error</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K4DW5LJMJ4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K4DW5LJMJ4');
+</script>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  
+  <!-- HTML Meta Tags -->
+  <title>About US</title>
+  <meta name="description" content="We are a youth-led, youth-focused tech social impact organisation that promotes inclusive, sustainable and equitable decent jobs, economic growth opportunities, clean energy and localising technology for ALL.">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="http://www.yandytech.org/about/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About US">
+  <meta property="og:description" content="We are a youth-led, youth-focused tech social impact organisation that promotes inclusive, sustainable and equitable decent jobs, economic growth opportunities, clean energy and localising technology for ALL.">
+  <meta property="og:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="yandytech.org">
+  <meta property="twitter:url" content="http://www.yandytech.org/about/">
+  <meta name="twitter:title" content="About US">
+  <meta name="twitter:description" content="We are a youth-led, youth-focused tech social impact organisation that promotes inclusive, sustainable and equitable decent jobs, economic growth opportunities, clean energy and localising technology for ALL.">
+  <meta name="twitter:image" content="http://www.yandytech.org/static/assets/img/yt1.png">
+
+  <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
+  <link href="{% static 'assets/img/icon1.png' %}" rel="icon">
+  
+<!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/w3.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'home' %}"><img src="{% static 'assets/img/yt1.png' %}" height="70px" alt=""></a>
+      
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'about' %}">About</a></li>
+          <li><a class="nav-link scrollto" href="#featured-services">Resources</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'hire' %}">Hire</a></li>
+          {% if user.is_authenticated %} 
+          <li><a class="getstarted scrollto" href="{% url 'profile' %}" >{{user.username}}</a></li>
+          {% else %}
+          <li><a class="getstarted scrollto" href="{% url 'support' %}" >Support Us</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+<main id="main">
+<br>
+<br>
+  <!-- ======= About Section ======= -->
+
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row">
+        
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <div class="section-title">
+
+                <h2 style="color: teal;">About Us</h2>
+              </div>
+          <p style="font-size: 18px;">We are a youth-led, youth-focused tech social impact organisation that promotes inclusive, sustainable and equitable decent jobs, economic growth opportunities, clean energy and localising technology for ALL.
+        </p>
+          <br>
+    
+
+        </div>
+
+
+        <div class="col-lg-6">
+            <img src="{% static 'assets/img/about.png' %}" class="img-fluid" alt="">
+          </div>
+      </div>
+
+    </div>
+  </section><!-- End About Section -->
+  
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-6">
+            <img src="{% static 'assets/img/community.png' %}" class="img-fluid" alt="">
+          </div>
+        
+        <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <div class="section-title">
+
+                <h2 style="color: teal; text-align: left;">Why we exist</h2>
+              </div>
+          <br>
+          <p style="font-size: 18px;"> <b>Community Membership Benefit</b> </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i>Find and hire best talent.</li>
+            <li><i class="bi bi-check-circle"></i>Decent jobs and economic growth opportunities.</li>
+            <li><i class="bi bi-check-circle"></i>Digital literacy skills for future jobs.</li>
+            <li><i class="bi bi-check-circle"></i>Community to connect with young professional from different industries.</li>
+
+          </ul>
+
+        </div>
+
+
+    
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======= Core Vaules Section ======= -->
+<div class="section-title">
+
+    <h2 style="color: teal;">Our  values</h2>
+  </div>
+<section id="featured-services" class="featured-services">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="icon-box">
+            <div class="icon w3-center"><img src="{% static 'assets/img/icons/brainstorm.png' %}" width="50px"></div>
+            <h4 class="title" style="text-align: center;">Teamwork</h4>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+          <div class="icon-box">
+            <div class="icon w3-center"><img src="{% static 'assets/img/icons/communities.png' %}" width="50px"></i></div>
+            <h4 class="title" style="text-align: center;">Community Development</h4>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+          <div class="icon-box w3-center">
+            <div class="icon"><img src="{% static 'assets/img/icons/empowerment.png' %}" width="50px"></i></div>
+            <h4 class="title" style="text-align: center;">Empowerment</h4>
+          </div>
+        </div>
+      </div>
+
+<br>
+    </div>
+  </section>
+  <!-- End Core Vaules Section -->
+
+  <!-- ======= Team Section ======= -->
+<section id="team" class="team section-bg">
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2  style="color: teal;">Our amazing Team</h2>
+    </div>
+    
+  </div>
+   
+
+  <div class="row">
+    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" style="margin:auto ;">
+      <div class="member">
+        <img src="{% static 'assets/img/team/yayandi2.jpg' %}" alt="">
+        <h4>Mohammed Bayero Yayandi</h4>
+        <span>Chief Executive Officer</span>
+        <div class="social">
+          <a href="https://twitter.com/hackyayandy" target="_blank"><i class="bi bi-twitter"></i></a>
+          <a href="https://facebook.com/hackyayandy" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://instagram.com/hackyayandy" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/mohammed-bayero-yayandi/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+ 
+ 
+
+   
+
+</div>
+  
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <img src="{% static 'assets/img/team/yayanko.jpg' %}" alt="">
+          <h4>Abubakar Mohammed Yayanko</h4>
+          <span>Chief Operations Officer</span>
+      
+          <div class="social">
+            <a href="https://twitter.com/m_yayanko" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.facebook.com/aymohammed" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com/m_yayanko" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <img src="{% static 'assets/img/team/fatima.jpg' %}"  alt="">
+          <h4>Fatima Auwal Aliyu</h4>
+          <span>Chief Strategy Officer</span>
+      
+          <div class="social">
+            <a href="https://twitter.com/teemerhtafoki" target="blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.facebook.com/fatima.aliyu.92754"><i class="bi bi-facebook" target="_blank"></i></a>
+            <a href="https://instagram.com/teemerh_tafoki"><i class="bi bi-instagram" target="_blank"></i></a>
+            <a href="https://www.linkedin.com/in/fatima-auwal-tafoki-8a901b153/" target="_blank"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <img src="{% static 'assets/img/team/alamin.jpg' %}" width="80%" alt="">
+          <h4>Alamin Musa Magaga</h4>
+          <span>Chief Technology Officer</span>
+          
+          <div class="social">
+            <a href="https://twitter.com/alamin_magaga" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.facebook.com/alaminmusa.magaga" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com/alamin_magaga" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/alamin-musa-magaga-8b388118b" target="_blank"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <img src="{% static 'assets/img/team/maryam.jpeg' %}" width="80%" height="200px" alt="">
+          <h4>Maryam Muhammad Bawa</h4>
+          <span>Business Development & Partnership Manager</span>
+          
+          <div class="social">
+            <a href="https://twitter.com/eesh_far" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.facebook.com/fareedah.ishaq.94" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com/eesh_far" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+  </div>
+  
+  
+   <div class="row">
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <div class="member">
+          <img src="{% static 'assets/img/team/kutigi.jpeg' %}" width="80%" height="200px" alt="">
+          <h4>Aliyu Alhassan Kutigi</h4>
+          <span>Communications and Community Growth Manager</span>
+      
+          <div class="social">
+            <a href="https://twitter.com/aliuelhasan" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.facebook.com/aliuelhasan" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com/aliuelhasan" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/aliuelhasan" target="_blank"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      </div>
+</section><!-- End Team Section -->
+
+   </main>
+
+
+   <!-- ======= Footer ======= -->
+   <footer id="footer">
+
+     <div class="footer-top">
+
+
+     </div>
+
+     <div class="container footer-bottom clearfix">
+       <div class="copyright">
+         &copy; Copyright <strong><span>YandyTech</span></strong>. All Rights Reserved
+       </div>
+       <div class="credits">
+        
+       </div>
+     </div>
+   </footer><!-- End Footer -->
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+ <!-- Vendor JS Files -->
+ <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+ <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+ <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+ <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+ <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+ <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+ <!-- Template Main JS File -->
+ <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
