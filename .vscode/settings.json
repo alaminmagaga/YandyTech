@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e7b1c016-b595-4a2a-a159-fa242156087d/resourceGroups/appsvc_linux_centralus_premium/providers/Microsoft.Web/sites/yandytech",
+    "appService.deploySubpath": "."
+}
