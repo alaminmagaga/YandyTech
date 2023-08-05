@@ -8,6 +8,7 @@ from . import views
 
 urlpatterns = [
     path("",views.home,name="home"),
+    path('joinus/',views.joinus,name="joinus"),
     path('register/',UserRegisterView.as_view(),name='register'),
     path('accounts/profile/',views.profile,name='profile'),
     path("terms/",views.terms,name="terms"),
