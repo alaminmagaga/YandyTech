@@ -19,7 +19,8 @@ import os
 
 
 
-
+def joinus(request):
+    return render(request,'joinus.html')
 
 
 
