@@ -46,7 +46,7 @@ urlpatterns = [
     path('blog/',views.blog,name='blog'),
     path('blog/<slug:slug>',views.blogdetail,name='details'),
     path('blog_category/<str:cats>/',views.BlogCategoryView,name='blogcategory'),
-    path('blogcategory',views.BlogCategoryL,name='blogcategory'),
+    path('blogcategory',views.BlogCategoryL,name='blogcategorylist'),
     path('blog/<slug:slug>/reply/<int:comment_id>/', views.reply, name='reply'),
     
 
